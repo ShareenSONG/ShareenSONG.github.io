@@ -53,5 +53,6 @@ describe('style demo home page', () => {
     expect(layoutSource).toContain("url: '/og.png'");
     expect(layoutSource).toContain("images: ['/og.png']");
     expect(layoutSource).toContain('BLACK / MOTION / EDITORIAL — Style Demo');
+    expect(layoutSource).toContain('https://black-motion-editorial-style-demo.aixinsong08.chatgpt.site');
   });
 });

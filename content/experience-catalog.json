@@ -1,0 +1,565 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-03",
+  "purpose": "个人网站的信息架构与内容选材底稿；不是可直接发布的最终文案。",
+  "source_materials": [
+    {
+      "name": "宋艾欣-主张证据账本.json",
+      "role": "主张边界、证据状态与风险说明",
+      "confidential": true
+    },
+    {
+      "name": "宋艾欣个人经历库.md",
+      "role": "完整经历、技能、活动与候选表述",
+      "confidential": true
+    }
+  ],
+  "importance_scale": {
+    "S": "旗舰内容：首页和精选案例必须出现，承担核心定位证明",
+    "A": "关键内容：用于案例、时间线或能力证明",
+    "B": "补充内容：增强完整度、跨界视角或个人温度",
+    "C": "归档内容：按需展示，不占首页主要篇幅"
+  },
+  "narrative_pillars": [
+    {
+      "name": "AI 产品闭环",
+      "evidence": "能够从用户研究、产品定义与 PRD 推进到 Agent 工作流、异常治理和业务交付。"
+    },
+    {
+      "name": "复杂系统产品化",
+      "evidence": "能拆解软硬件协同、规则与 LLM 边界、数据证据链及跨团队评审。"
+    },
+    {
+      "name": "商业与组织落地",
+      "evidence": "具备 ToB/ToG 方案、本地化部署、招投标、项目验收和社区运营经验。"
+    },
+    {
+      "name": "技术理解与快速构建",
+      "evidence": "覆盖 AI Agent、Python/SQL、大数据链路、原型与数据可视化，适合展示可运行产物。"
+    }
+  ],
+  "experiences": [
+    {
+      "id": "fairland-role",
+      "title": "AI 产品实习生",
+      "type": "work",
+      "organization": "深圳菲亚兰德科技集团股份有限公司",
+      "role": "AI 产品实习生",
+      "period": {
+        "start": "2026-04",
+        "end": null,
+        "display": "2026.04–至今",
+        "precision": "confirmed"
+      },
+      "importance": "A",
+      "importance_reason": "当前且最贴近目标岗位的工作经历，是两项旗舰案例的组织背景。",
+      "website_placement": ["经历时间线", "关于我"],
+      "verification_status": "confirmed",
+      "public_safe_summary": "围绕海外智能庭院产品开展用户研究、产品定义、Agent 产品化与跨团队方案评审。",
+      "proof_points": ["任职公司、岗位与起始时间已确认"],
+      "claim_ids": ["claim-fairland-role-001"],
+      "cautions": ["角色为实习生，不扩展为正式员工或公司级项目负责人。"]
+    },
+    {
+      "id": "fairland-competitor-agent",
+      "title": "竞品监控 Agent 与 Dashboard",
+      "type": "work_project",
+      "organization": "深圳菲亚兰德科技集团股份有限公司",
+      "role": "方案设计、开发、验证与业务交付",
+      "period": {
+        "start": "2026-04",
+        "end": null,
+        "display": "2026 年，菲亚兰德任职期间（具体起止待补）",
+        "precision": "role_range"
+      },
+      "importance": "S",
+      "importance_reason": "最完整地体现 AI 产品经理的技术理解、工作流设计、数据意识、异常闭环与业务价值。",
+      "website_placement": ["首页精选案例", "案例详情", "能力地图"],
+      "verification_status": "partial",
+      "public_safe_summary": "将一次性竞品调研产品化为数据源配置、采集留证、结构化抽取、事件 Diff、报告生成与业务交付的可复用工作流。",
+      "proof_points": [
+        "明确事实数据由规则与 Diff 产生，LLM 负责解释与报告表达",
+        "设计动态页面、低置信度、Coupon 误判和任务超时的兜底机制",
+        "候选试跑覆盖 3 个品牌、7 个市场、108 个 URL，运行报告记录 108/108 抓取成功",
+        "产出日报、价格表和 HTML Dashboard"
+      ],
+      "claim_ids": [
+        "claim-agent-productization-001",
+        "claim-agent-trial-001",
+        "claim-agent-business-impact-001",
+        "claim-agent-data-platform-001",
+        "claim-agent-decision-support-001"
+      ],
+      "cautions": [
+        "108/108 是候选试跑抓取结果，不等于全部业务验收。",
+        "实际用户数存在 20+ 与 200+ 的冲突，确认前不公开。",
+        "约 30% 工时节省来自内部问卷，不应表述为严格实验结论。",
+        "SQLite 业务数据中台尚缺数据库、Schema 与查询证据，确认前只写结构化数据层。",
+        "可表述为提供决策输入，不能声称直接改变定价、促销或带来营收增长。"
+      ]
+    },
+    {
+      "id": "fairland-igarden",
+      "title": "iGarden Motion Game｜AI 视觉游戏主机",
+      "type": "work_project",
+      "organization": "深圳菲亚兰德科技集团股份有限公司",
+      "role": "产品研究、定义、PRD 与原型主导",
+      "period": {
+        "start": "2026-04",
+        "end": null,
+        "display": "2026 年，菲亚兰德任职期间（具体起止待补）",
+        "precision": "role_range"
+      },
+      "importance": "S",
+      "importance_reason": "同时覆盖海外用户研究、软硬件产品定义、视觉体感玩法和控制 App 设计，辨识度很高。",
+      "website_placement": ["首页精选案例", "案例详情", "作品与原型"],
+      "verification_status": "partial",
+      "public_safe_summary": "基于北美庭院娱乐场景研究，定义视觉体感家庭娱乐终端，并完成控制 App PRD、全流程原型与跨团队评审。",
+      "proof_points": [
+        "独立设计调研框架，并将 N=300 线上定量问卷与多源公开研究交叉验证",
+        "将 Camera 姿态、位置判断和多人追踪能力转化为单/双人游戏机制",
+        "控制 App 原型覆盖连接、游戏切换、IMU 遥控、媒体传输及断线重连",
+        "梳理 126 条游戏记录并准备 114 份定制英文联络材料"
+      ],
+      "claim_ids": [
+        "claim-igarden-research-001",
+        "claim-igarden-direction-decision-001",
+        "claim-igarden-definition-001",
+        "claim-igarden-prd-prototype-001",
+        "claim-igarden-review-001",
+        "claim-igarden-studio-outreach-001",
+        "claim-igarden-analytics-001"
+      ],
+      "cautions": [
+        "需求由 mentor 下发，最终战略与研发决策属于团队。",
+        "产品和 App 仍处方案评审阶段，不写成已上线。",
+        "114 份材料截至证据账本记录时尚未发送，不能写成已联系或已合作 114 家工作室。",
+        "N=300 的正式口径是线上定量问卷，不是 300 次一对一访谈。"
+      ]
+    },
+    {
+      "id": "baike-ai-education",
+      "title": "AI 数字人教育产品与 ToB/ToG 解决方案",
+      "type": "work",
+      "organization": "百科荣创科技发展有限公司",
+      "role": "产品解决方案工程师（兼产品经理）",
+      "period": {
+        "start": "2024-06",
+        "end": "2025-06",
+        "display": "2024.06–2025.06",
+        "precision": "confirmed"
+      },
+      "importance": "S",
+      "importance_reason": "拥有从需求、产品到部署、招投标和回款支撑的完整商业落地证据，是履历中最强的成熟业务经历。",
+      "website_placement": ["首页精选案例", "工作经历", "案例详情"],
+      "verification_status": "confirmed",
+      "public_safe_summary": "通过教师深访与课堂流程拆解定义 AI 数字人教育产品，并推动高校部署、方案标准化与规模化项目交付。",
+      "proof_points": [
+        "完成 5 场高校教师深访和 3 次课堂录制流程拆解",
+        "输出实时语音合成、自定义 Avatar、多模态输入输出等功能 PRD",
+        "产品落地 5 所高校",
+        "相关方案覆盖 15 所高校并累计支撑 1800 万元以上项目回款"
+      ],
+      "claim_ids": ["claim-baike-ai-education-001"],
+      "cautions": [
+        "1800 万元是团队项目累计回款，使用‘支撑’而不是个人销售业绩。",
+        "经历库中的‘10 余所’与最新材料中的‘15 所’应以前者来源日期与项目清单复核。"
+      ]
+    },
+    {
+      "id": "hkbu-masters",
+      "title": "计算机科学与技术（信息技术管理方向）硕士",
+      "type": "education",
+      "organization": "香港浸会大学",
+      "role": "硕士研究生",
+      "period": {
+        "start": "2025-09",
+        "end": "2026-10",
+        "display": "2025.09–2026.10",
+        "precision": "confirmed"
+      },
+      "importance": "A",
+      "importance_reason": "连接计算机背景、信息技术管理和 AI 产品岗位定位，并有奖学金证明。",
+      "website_placement": ["教育背景", "关于我"],
+      "verification_status": "conflict",
+      "public_safe_summary": "信息技术管理方向硕士，课程覆盖数据分析、数字化转型、IT 项目管理、信息安全和 Prompt 工程。",
+      "proof_points": ["GPA 3.25/4.0", "Semester 1 Merit Scholarship"],
+      "claim_ids": [],
+      "cautions": ["专业排名在材料中存在前 5% 与前 10% 两种口径，确认前不公开排名。"]
+    },
+    {
+      "id": "jinan-bachelors",
+      "title": "计算机科学与技术本科",
+      "type": "education",
+      "organization": "济南大学",
+      "role": "本科生",
+      "period": {
+        "start": "2020-09",
+        "end": "2024-06",
+        "display": "2020.09–2024.06",
+        "precision": "confirmed"
+      },
+      "importance": "B",
+      "importance_reason": "证明编程、数据工程与机器学习基础，并解释后续 AI 产品方向的技术底座。",
+      "website_placement": ["教育背景", "经历时间线"],
+      "verification_status": "confirmed",
+      "public_safe_summary": "系统学习机器学习、云计算、数据库、大数据处理、编程与信息安全。",
+      "proof_points": ["GPA 3.44/5.0", "校级三等奖学金", "暑期社会实践一等奖"],
+      "claim_ids": ["claim-jinan-coursework-001"],
+      "cautions": ["课程学习不等同于生产级工程经验。"]
+    },
+    {
+      "id": "openclaw-security",
+      "title": "OpenClaw AI Agent 安全体系设计与验证",
+      "type": "academic_project",
+      "organization": "课程/团队项目",
+      "role": "项目负责人",
+      "period": {
+        "start": "2026-02",
+        "end": "2026-05",
+        "display": "2026.02–2026.05",
+        "precision": "confirmed"
+      },
+      "importance": "A",
+      "importance_reason": "能补足 AI 产品安全、权限边界和实验验证能力，适合作为技术深度案例。",
+      "website_placement": ["精选项目", "AI 能力地图"],
+      "verification_status": "confirmed",
+      "public_safe_summary": "围绕访问控制、Prompt 注入、系统隔离和网络暴露建立风险矩阵，并比较本地与 Docker 部署边界。",
+      "proof_points": ["本地 Gemma4:e4b 验证环境", "测试用例与 A/B 对照实验", "workspace 隔离与最小权限方案"],
+      "claim_ids": ["claim-openclaw-security-001"],
+      "cautions": ["项目使用情况与实验结论来自个人材料，公开案例需补充脱敏测试样本与判定标准。"]
+    },
+    {
+      "id": "mindcare",
+      "title": "MindCare｜AI 心理健康应用 0→1 产品设计",
+      "type": "academic_project",
+      "organization": "课程/团队项目",
+      "role": "产品经理",
+      "period": {
+        "start": "2026-02",
+        "end": "2026-04",
+        "display": "2026.02–2026.04",
+        "precision": "confirmed"
+      },
+      "importance": "A",
+      "importance_reason": "覆盖用户研究、功能架构、核心流程、可用性测试与商业化路线，适合展示完整产品方法。",
+      "website_placement": ["精选项目", "产品方法"],
+      "verification_status": "conflict",
+      "public_safe_summary": "围绕年轻用户的日常情绪支持场景，完成需求收敛、六大模块、四条核心流程、原型验证与 Freemium 路线设计。",
+      "proof_points": ["6 大功能模块", "4 条核心 User Flow", "任务型可用性测试", "阶段性产品 Roadmap"],
+      "claim_ids": ["claim-mindcare-product-001"],
+      "cautions": [
+        "用户访谈样本在经历库中为 N=12，在证据账本和最新简历中为团队 N=60，需确认样本口径。",
+        "心理健康内容需避免医疗效果承诺，并说明 Crisis Hotline 等高风险边界。"
+      ]
+    },
+    {
+      "id": "sasa-beauty",
+      "title": "Sasa Beauty｜AI 驱动美妆零售数字化转型",
+      "type": "academic_project",
+      "organization": "课程/团队项目",
+      "role": "项目负责人",
+      "period": {
+        "start": "2025-09",
+        "end": "2025-11",
+        "display": "2025.09–2025.11",
+        "precision": "confirmed"
+      },
+      "importance": "A",
+      "importance_reason": "突出定量研究、竞品分析、Figma 原型和 A/B 测试，是消费产品方向的补充案例。",
+      "website_placement": ["精选项目", "研究与验证"],
+      "verification_status": "conflict",
+      "public_safe_summary": "围绕虚拟试妆、个性化推荐与智能问答，完成用户研究、竞品分析、产品文档、原型和 A/B 测试。",
+      "proof_points": ["3 类用户画像", "5 条核心洞察", "Tableau 竞品分析", "PRD 与 Figma 高保真原型", "N=100+ A/B 测试"],
+      "claim_ids": ["claim-sasa-ai-retail-001"],
+      "cautions": [
+        "用户访谈样本在经历库中为 20+，在证据账本和最新简历中为 N=158，需确认是否为不同研究阶段。",
+        "转化率、DAU 和使用率提升均为目标或预估，不应写成已实现结果。"
+      ]
+    },
+    {
+      "id": "vibecoders",
+      "title": "VibeCoders 深圳 AI 产品社区共创",
+      "type": "community",
+      "organization": "VibeCoders 深圳 AI 产品社区",
+      "role": "共创者",
+      "period": {
+        "start": "2026-07",
+        "end": null,
+        "display": "2026.07–至今",
+        "precision": "confirmed"
+      },
+      "importance": "B",
+      "importance_reason": "增强 AI 社区参与、活动运营和真实人格表达，可作为主页之外的个人温度。",
+      "website_placement": ["社区与活动", "关于我"],
+      "verification_status": "conflict",
+      "public_safe_summary": "参与 Vibe Coding 线下活动的策划与现场运营，负责场地、签到和动线等环节。",
+      "proof_points": ["百人规模活动运营", "场地布置、签到流程和现场指引"],
+      "claim_ids": ["claim-vibecoders-events-001"],
+      "cautions": ["经历库写 5 场、1000+ 人，证据账本写 2 场、380+ 人；需按活动日期、名单或照片更新口径。"]
+    },
+    {
+      "id": "techxplore-europe",
+      "title": "TechXPlore Central Europe Learning Expedition 2026",
+      "type": "exchange",
+      "organization": "香港浸会大学",
+      "role": "院系优秀学生代表",
+      "period": {
+        "start": "2026-05",
+        "end": "2026-06",
+        "display": "2026.05.25–2026.06.06",
+        "precision": "day_confirmed"
+      },
+      "importance": "B",
+      "importance_reason": "提供国际化与产业观察视角，适合用照片和短札记增强个人网站叙事。",
+      "website_placement": ["观察与成长", "经历时间线"],
+      "verification_status": "confirmed",
+      "public_safe_summary": "访问欧洲高校、国际组织与科技制造企业，关注无障碍产品、AI 基础设施、医疗 AI、半导体和智能制造。",
+      "proof_points": ["12 天中欧研学", "EPFL、TUM、ITU、联合国、Google Zurich、Infineon 与 BMW 等参访"],
+      "claim_ids": ["claim-techxplore-europe-001"],
+      "cautions": ["仅表述为参访学习，不暗示在被访机构实习或参与内部项目。"]
+    },
+    {
+      "id": "sjtu-exchange",
+      "title": "企业、公司治理和股东救济交换生项目",
+      "type": "exchange",
+      "organization": "上海交通大学",
+      "role": "交换生",
+      "period": {
+        "start": "2025-10",
+        "end": "2026-01",
+        "display": "2025.10–2026.01",
+        "precision": "confirmed"
+      },
+      "importance": "B",
+      "importance_reason": "补充 AI 商业化、公司治理、数据合规和技术专利视角。",
+      "website_placement": ["观察与成长", "经历时间线"],
+      "verification_status": "confirmed",
+      "public_safe_summary": "围绕拥有大模型业务的科技企业，分析商业化扩张、治理架构、股东权益、数据合规与技术专利。",
+      "proof_points": ["完成案例分析报告", "课堂评价 A Level"],
+      "claim_ids": ["claim-sjtu-exchange-001"],
+      "cautions": ["属于课程案例研讨，不表述为真实企业咨询或治理项目。"]
+    },
+    {
+      "id": "jinan-psychology-association",
+      "title": "心理协会部长",
+      "type": "campus",
+      "organization": "济南大学信息科学与工程学院心理协会",
+      "role": "部长",
+      "period": {
+        "start": "2020-10",
+        "end": "2024-05",
+        "display": "2020.10–2024.05",
+        "precision": "confirmed"
+      },
+      "importance": "B",
+      "importance_reason": "长期组织经验能证明沟通、统筹和同理心，也是 MindCare 项目叙事的自然背景。",
+      "website_placement": ["社区与活动", "关于我"],
+      "verification_status": "partial",
+      "public_safe_summary": "统筹校企对接、招聘双选会、心理健康主题活动和压力管理工作坊。",
+      "proof_points": ["对接 10 家企业", "策划 150 人以上主题活动"],
+      "claim_ids": [],
+      "cautions": ["公开具体数字前可补充活动材料、新闻或照片。"]
+    },
+    {
+      "id": "spark-ecommerce",
+      "title": "基于 Spark 的电商数据分析",
+      "type": "technical_project",
+      "organization": "本科项目",
+      "role": "项目负责人",
+      "period": {
+        "start": "2024-02",
+        "end": "2024-05",
+        "display": "2024.02–2024.05",
+        "precision": "reported"
+      },
+      "importance": "B",
+      "importance_reason": "展示 Python、Kafka、HDFS、Spark SQL 与 MySQL 的端到端数据链路，可支持数据型产品定位。",
+      "website_placement": ["项目归档", "技术能力"],
+      "verification_status": "partial",
+      "public_safe_summary": "搭建电商数据采集、传输、存储、分析与入库链路，并输出选品、定价和运营分析。",
+      "proof_points": ["Python 爬虫", "Kafka", "HDFS", "Spark Core/SQL", "MySQL"],
+      "claim_ids": [],
+      "cautions": ["缺少数据量、代码仓库和结果校验材料，不写性能或准确率提升。"]
+    },
+    {
+      "id": "inspur-weather-data",
+      "title": "气象大数据治理与可视化分析",
+      "type": "training",
+      "organization": "浪潮优派教育科技有限公司",
+      "role": "实训成员",
+      "period": {
+        "start": "2023-07",
+        "end": "2023-08",
+        "display": "2023.07–2023.08",
+        "precision": "reported"
+      },
+      "importance": "C",
+      "importance_reason": "作为早期数据实践保留在完整时间线，不建议占用首页篇幅。",
+      "website_placement": ["项目归档"],
+      "verification_status": "partial",
+      "public_safe_summary": "使用 Hive 治理气象数据，并通过 DataEase 完成指标分析与可视化看板。",
+      "proof_points": ["Hive 数据仓库", "缺失值与异常值处理", "DataEase 看板"],
+      "claim_ids": [],
+      "cautions": ["需明确个人负责范围和数据规模。"]
+    },
+    {
+      "id": "hadoop-nba",
+      "title": "Hadoop 伪分布式 NBA 数据处理",
+      "type": "technical_project",
+      "organization": "本科项目",
+      "role": "项目负责人",
+      "period": {
+        "start": "2023-10",
+        "end": "2023-12",
+        "display": "2023.10–2023.12",
+        "precision": "confirmed"
+      },
+      "importance": "C",
+      "importance_reason": "证明基础数据工程实践，但与当前 AI 产品定位的直接关联弱于其他案例。",
+      "website_placement": ["项目归档"],
+      "verification_status": "confirmed",
+      "public_safe_summary": "在单机伪分布式环境中完成 NBA 数据的存储、清洗、去重、结构化和 MapReduce 统计。",
+      "proof_points": ["HDFS Shell", "MapReduce", "总冠军球队与东西部分区统计"],
+      "claim_ids": ["claim-hadoop-nba-001"],
+      "cautions": ["伪分布式不是生产级多节点集群；没有数据量时不写性能提升。"]
+    },
+    {
+      "id": "wechat-rural",
+      "title": "乡村振兴主题微信小程序",
+      "type": "technical_project",
+      "organization": "中国高校计算机大赛参赛项目",
+      "role": "核心成员",
+      "period": {
+        "start": "2021-09",
+        "end": "2022-09",
+        "display": "2021.09–2022.09",
+        "precision": "confirmed"
+      },
+      "importance": "C",
+      "importance_reason": "早期产品与开发协作经历，可在完整归档中体现成长轨迹。",
+      "website_placement": ["项目归档"],
+      "verification_status": "confirmed",
+      "public_safe_summary": "参与师生双端账号、内容传播、课程学习、签到和作业流转等功能设计、开发与测试。",
+      "proof_points": ["师生双端流程", "课程与作业闭环", "开发、测试与迭代"],
+      "claim_ids": ["claim-wechat-rural-001"],
+      "cautions": ["不表述为独立完成，赛事结果、技术栈和上线情况尚待补充。"]
+    },
+    {
+      "id": "aerospace-web",
+      "title": "航空航天科普推广网站",
+      "type": "technical_project",
+      "organization": "第八届“互联网+”大赛参赛项目",
+      "role": "项目负责人",
+      "period": {
+        "start": "2022-06",
+        "end": "2022-12",
+        "display": "2022.06–2022.12",
+        "precision": "confirmed"
+      },
+      "importance": "C",
+      "importance_reason": "适合作为早期交互产品探索归档，当前与 AI 产品主线关联较弱。",
+      "website_placement": ["项目归档"],
+      "verification_status": "partial",
+      "public_safe_summary": "规划账号、3D 行星展示与航天科普模块，并集成三维地球和环境数据展示能力。",
+      "proof_points": ["账号体系", "3D 行星动态展示", "航天成果科普"],
+      "claim_ids": ["claim-aerospace-web-001"],
+      "cautions": ["需确认实际使用的是 Google Earth、Earth Engine、Maps 3D、Cesium 或其他技术。"]
+    }
+  ],
+  "capability_groups": [
+    {
+      "name": "产品",
+      "items": ["用户研究", "竞品分析", "PRD", "原型设计", "Roadmap/WBS", "项目管理", "ToB/ToG 解决方案", "A/B 测试"]
+    },
+    {
+      "name": "AI",
+      "items": ["AI Agent 工作流", "Prompt Engineering", "LLM 应用边界", "异常与人工复核闭环", "AI MVP 搭建"]
+    },
+    {
+      "name": "数据与开发",
+      "items": ["Python", "SQL", "R", "Java", "C/C#", "Hadoop", "Spark", "Kafka"]
+    },
+    {
+      "name": "设计、分析与协作工具",
+      "items": ["Figma", "Canva", "Tableau", "Power BI", "Datawrapper", "Office"]
+    }
+  ],
+  "credentials": ["大数据开发应用工程师", "CET-6", "IELTS 6.5", "普通话二级"],
+  "personal_dimensions": [
+    {
+      "name": "古筝",
+      "detail": "十级",
+      "website_value": "长期练习与审美表达"
+    },
+    {
+      "name": "瑜伽",
+      "detail": "练习 11 年（材料口径，需随年份更新）",
+      "website_value": "持续性、自我管理与身体感知"
+    },
+    {
+      "name": "书法",
+      "detail": "兴趣",
+      "website_value": "东方审美与个人温度"
+    },
+    {
+      "name": "电影",
+      "detail": "兴趣",
+      "website_value": "叙事与视觉品味"
+    }
+  ],
+  "open_questions": [
+    {
+      "id": "q-hkbu-ranking",
+      "experience_ids": ["hkbu-masters"],
+      "issue": "专业排名存在前 5% 与前 10% 两种口径。",
+      "recommended_evidence": "成绩单、学院排名证明或奖学金通知。"
+    },
+    {
+      "id": "q-agent-users",
+      "experience_ids": ["fairland-competitor-agent"],
+      "issue": "Agent 实际使用人数存在 20+ 与 200+ 冲突，可能分别是活跃用户和群覆盖人数。",
+      "recommended_evidence": "钉钉群范围、问卷回收表、访问日志或 Dashboard 使用记录。"
+    },
+    {
+      "id": "q-agent-sqlite",
+      "experience_ids": ["fairland-competitor-agent"],
+      "issue": "SQLite 数据中台缺少业务数据库文件、Schema、写入任务和查询证据。",
+      "recommended_evidence": "脱敏 Schema、表关系图、查询截图和 Dashboard 数据链路。"
+    },
+    {
+      "id": "q-agent-brands",
+      "experience_ids": ["fairland-competitor-agent"],
+      "issue": "最新简历中的 20+ 品牌与证据账本中水机试跑的 3 品牌口径需要拆分说明。",
+      "recommended_evidence": "按割草机/水机、正式/候选拆分的品牌和 URL 清单。"
+    },
+    {
+      "id": "q-studio-outreach",
+      "experience_ids": ["fairland-igarden"],
+      "issue": "114 家工作室在材料中分别表述为准备联络、已对接或合作对接。",
+      "recommended_evidence": "发送日志、回复统计及明确的合作阶段字段。"
+    },
+    {
+      "id": "q-mindcare-sample",
+      "experience_ids": ["mindcare"],
+      "issue": "MindCare 用户研究样本存在 N=12 与团队 N=60 两种口径。",
+      "recommended_evidence": "访谈记录索引、团队分工和样本去重后的研究报告。"
+    },
+    {
+      "id": "q-sasa-sample",
+      "experience_ids": ["sasa-beauty"],
+      "issue": "Sasa Beauty 用户访谈样本存在 20+ 与 N=158 两种口径。",
+      "recommended_evidence": "研究报告中定性访谈、问卷与其他样本的分类口径。"
+    },
+    {
+      "id": "q-vibecoders-scale",
+      "experience_ids": ["vibecoders"],
+      "issue": "社区活动存在 2 场/380+ 人与 5 场/1000+ 人两种时点口径。",
+      "recommended_evidence": "活动名称、日期、单场人数、推文链接和工作人员记录。"
+    }
+  ],
+  "privacy": {
+    "excluded_from_public_catalog": ["手机号", "私人邮箱", "政治面貌", "内部文件绝对路径", "未脱敏公司材料"],
+    "rule": "联系方式通过单独的站点配置和明确授权管理；证据账本只用于内部事实校验。"
+  }
+}

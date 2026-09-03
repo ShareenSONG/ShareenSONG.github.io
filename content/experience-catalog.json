@@ -552,6 +552,12 @@
       "recommended_evidence": "研究报告中定性访谈、问卷与其他样本的分类口径。"
     },
     {
+      "id": "q-baike-school-scope",
+      "experience_ids": ["baike-ai-education"],
+      "issue": "百科荣创相关方案覆盖范围存在 10 余所与 15 所两种口径。",
+      "recommended_evidence": "按产品实际落地、方案覆盖和项目交付分别整理高校清单。"
+    },
+    {
       "id": "q-vibecoders-scale",
       "experience_ids": ["vibecoders"],
       "issue": "社区活动存在 2 场/380+ 人与 5 场/1000+ 人两种时点口径。",

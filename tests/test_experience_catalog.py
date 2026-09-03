@@ -106,6 +106,8 @@ class ExperienceCatalogTest(unittest.TestCase):
                 referenced.add(experience_id)
 
         self.assertEqual(len(question_ids), len(set(question_ids)))
+        self.assertEqual(9, len(question_ids))
+        self.assertIn("q-baike-school-scope", question_ids)
         conflicted = {
             item["id"]
             for item in self.experiences

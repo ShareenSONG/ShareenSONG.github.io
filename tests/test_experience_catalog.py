@@ -134,6 +134,11 @@ class ExperienceCatalogTest(unittest.TestCase):
             with self.subTest(heading=heading):
                 self.assertIn(heading, analysis)
 
+    def test_analysis_document_has_no_trailing_whitespace(self):
+        lines = ANALYSIS_PATH.read_text(encoding="utf-8").splitlines()
+        violations = [number for number, line in enumerate(lines, 1) if line != line.rstrip()]
+        self.assertEqual([], violations, f"Trailing whitespace on lines: {violations}")
+
 
 if __name__ == "__main__":
     unittest.main()

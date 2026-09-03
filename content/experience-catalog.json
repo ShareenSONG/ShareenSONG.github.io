@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "updated_at": "2026-09-03",
   "purpose": "个人网站的信息架构与内容选材底稿；不是可直接发布的最终文案。",
   "source_materials": [
@@ -11,6 +11,11 @@
     {
       "name": "宋艾欣个人经历库.md",
       "role": "完整经历、技能、活动与候选表述",
+      "confidential": true
+    },
+    {
+      "name": "用户于 2026-09-03 提交的冲突口径补充",
+      "role": "确认九项冲突的最终数字、范围、研究口径与执行状态",
       "confidential": true
     }
   ],
@@ -80,8 +85,9 @@
       "proof_points": [
         "明确事实数据由规则与 Diff 产生，LLM 负责解释与报告表达",
         "设计动态页面、低置信度、Coupon 误判和任务超时的兜底机制",
-        "候选试跑覆盖 3 个品牌、7 个市场、108 个 URL，运行报告记录 108/108 抓取成功",
-        "产出日报、价格表和 HTML Dashboard"
+        "正式监控 20+ 品牌，并面向公司内部 200+ 用户提供使用",
+        "SQLite 数据中台真实写入业务数据，并产出日报、价格表和 HTML Dashboard",
+        "约 30% 工时节省的口径来自通过钉钉在公司内部发放的问卷调查"
       ],
       "claim_ids": [
         "claim-agent-productization-001",
@@ -91,10 +97,9 @@
         "claim-agent-decision-support-001"
       ],
       "cautions": [
-        "108/108 是候选试跑抓取结果，不等于全部业务验收。",
-        "实际用户数存在 20+ 与 200+ 的冲突，确认前不公开。",
-        "约 30% 工时节省来自内部问卷，不应表述为严格实验结论。",
-        "SQLite 业务数据中台尚缺数据库、Schema 与查询证据，确认前只写结构化数据层。",
+        "品牌范围只使用已确认的正式监控 20+ 品牌口径。",
+        "200+ 指公司内部用户；约 30% 工时节省来自钉钉内部问卷，不应表述为严格实验或因果结论。",
+        "SQLite 确实写入业务数据，但数据库、Schema、查询结果和 Dashboard 截图公开前必须脱敏并确认公司许可。",
         "可表述为提供决策输入，不能声称直接改变定价、促销或带来营收增长。"
       ]
     },
@@ -119,7 +124,8 @@
         "独立设计调研框架，并将 N=300 线上定量问卷与多源公开研究交叉验证",
         "将 Camera 姿态、位置判断和多人追踪能力转化为单/双人游戏机制",
         "控制 App 原型覆盖连接、游戏切换、IMU 遥控、媒体传输及断线重连",
-        "梳理 126 条游戏记录并准备 114 份定制英文联络材料"
+        "梳理 126 条游戏记录，联络 114 家游戏工作室和 Steam 游戏开发者",
+        "与北美多家游戏工作室进行会议交流"
       ],
       "claim_ids": [
         "claim-igarden-research-001",
@@ -133,7 +139,7 @@
       "cautions": [
         "需求由 mentor 下发，最终战略与研发决策属于团队。",
         "产品和 App 仍处方案评审阶段，不写成已上线。",
-        "114 份材料截至证据账本记录时尚未发送，不能写成已联系或已合作 114 家工作室。",
+        "可写已联络 114 家及与北美多家工作室会议交流，不延伸为已签约、已合作或已完成游戏接入。",
         "N=300 的正式口径是线上定量问卷，不是 300 次一对一访谈。"
       ]
     },
@@ -163,7 +169,7 @@
       "claim_ids": ["claim-baike-ai-education-001"],
       "cautions": [
         "1800 万元是团队项目累计回款，使用‘支撑’而不是个人销售业绩。",
-        "经历库中的‘10 余所’与最新材料中的‘15 所’应以前者来源日期与项目清单复核。"
+        "高校范围使用已确认的 15 所方案覆盖口径，并与 5 所产品实际落地区分。"
       ]
     },
     {
@@ -181,11 +187,11 @@
       "importance": "A",
       "importance_reason": "连接计算机背景、信息技术管理和 AI 产品岗位定位，并有奖学金证明。",
       "website_placement": ["教育背景", "关于我"],
-      "verification_status": "conflict",
+      "verification_status": "confirmed",
       "public_safe_summary": "信息技术管理方向硕士，课程覆盖数据分析、数字化转型、IT 项目管理、信息安全和 Prompt 工程。",
-      "proof_points": ["GPA 3.25/4.0", "Semester 1 Merit Scholarship"],
+      "proof_points": ["GPA 3.25/4.0", "专业排名前 5%", "Semester 1 Merit Scholarship"],
       "claim_ids": [],
-      "cautions": ["专业排名在材料中存在前 5% 与前 10% 两种口径，确认前不公开排名。"]
+      "cautions": ["专业排名采用用户确认的前 5% 口径；正式公开时建议保留成绩单、排名证明或奖学金通知作为依据。"]
     },
     {
       "id": "jinan-bachelors",
@@ -244,12 +250,11 @@
       "importance": "A",
       "importance_reason": "覆盖用户研究、功能架构、核心流程、可用性测试与商业化路线，适合展示完整产品方法。",
       "website_placement": ["精选项目", "产品方法"],
-      "verification_status": "conflict",
+      "verification_status": "confirmed",
       "public_safe_summary": "围绕年轻用户的日常情绪支持场景，完成需求收敛、六大模块、四条核心流程、原型验证与 Freemium 路线设计。",
-      "proof_points": ["6 大功能模块", "4 条核心 User Flow", "任务型可用性测试", "阶段性产品 Roadmap"],
+      "proof_points": ["用户研究样本 N=60", "6 大功能模块", "4 条核心 User Flow", "任务型可用性测试", "阶段性产品 Roadmap"],
       "claim_ids": ["claim-mindcare-product-001"],
       "cautions": [
-        "用户访谈样本在经历库中为 N=12，在证据账本和最新简历中为团队 N=60，需确认样本口径。",
         "心理健康内容需避免医疗效果承诺，并说明 Crisis Hotline 等高风险边界。"
       ]
     },
@@ -268,12 +273,12 @@
       "importance": "A",
       "importance_reason": "突出定量研究、竞品分析、Figma 原型和 A/B 测试，是消费产品方向的补充案例。",
       "website_placement": ["精选项目", "研究与验证"],
-      "verification_status": "conflict",
+      "verification_status": "confirmed",
       "public_safe_summary": "围绕虚拟试妆、个性化推荐与智能问答，完成用户研究、竞品分析、产品文档、原型和 A/B 测试。",
-      "proof_points": ["3 类用户画像", "5 条核心洞察", "Tableau 竞品分析", "PRD 与 Figma 高保真原型", "N=100+ A/B 测试"],
+      "proof_points": ["全量用户研究样本 N=158", "3 类用户画像", "5 条核心洞察", "Tableau 竞品分析", "PRD 与 Figma 高保真原型", "N=100+ A/B 测试"],
       "claim_ids": ["claim-sasa-ai-retail-001"],
       "cautions": [
-        "用户访谈样本在经历库中为 20+，在证据账本和最新简历中为 N=158，需确认是否为不同研究阶段。",
+        "N=158 是全部研究样本，不表述为 158 次一对一深访。",
         "转化率、DAU 和使用率提升均为目标或预估，不应写成已实现结果。"
       ]
     },
@@ -292,11 +297,11 @@
       "importance": "B",
       "importance_reason": "增强 AI 社区参与、活动运营和真实人格表达，可作为主页之外的个人温度。",
       "website_placement": ["社区与活动", "关于我"],
-      "verification_status": "conflict",
+      "verification_status": "confirmed",
       "public_safe_summary": "参与 Vibe Coding 线下活动的策划与现场运营，负责场地、签到和动线等环节。",
-      "proof_points": ["百人规模活动运营", "场地布置、签到流程和现场指引"],
+      "proof_points": ["参与 5 场线下活动运营，累计规模 1000+ 人", "场地布置、签到流程和现场指引"],
       "claim_ids": ["claim-vibecoders-events-001"],
-      "cautions": ["经历库写 5 场、1000+ 人，证据账本写 2 场、380+ 人；需按活动日期、名单或照片更新口径。"]
+      "cautions": ["活动规模采用用户确认的 5 场、累计 1000+ 人口径；公开案例宜保留活动清单、推文或照片。"]
     },
     {
       "id": "techxplore-europe",
@@ -508,60 +513,70 @@
       "website_value": "叙事与视觉品味"
     }
   ],
-  "open_questions": [
+  "open_questions": [],
+  "resolved_conflicts": [
     {
       "id": "q-hkbu-ranking",
       "experience_ids": ["hkbu-masters"],
-      "issue": "专业排名存在前 5% 与前 10% 两种口径。",
-      "recommended_evidence": "成绩单、学院排名证明或奖学金通知。"
+      "resolution": "专业排名统一为前 5%。",
+      "confirmed_by": "user",
+      "confirmed_at": "2026-09-03"
     },
     {
       "id": "q-agent-users",
       "experience_ids": ["fairland-competitor-agent"],
-      "issue": "Agent 实际使用人数存在 20+ 与 200+ 冲突，可能分别是活跃用户和群覆盖人数。",
-      "recommended_evidence": "钉钉群范围、问卷回收表、访问日志或 Dashboard 使用记录。"
+      "resolution": "用户规模统一为公司内部 200+ 用户；约 30% 工时节省来自通过钉钉在公司内部发放的问卷调查。",
+      "confirmed_by": "user",
+      "confirmed_at": "2026-09-03"
     },
     {
       "id": "q-agent-sqlite",
       "experience_ids": ["fairland-competitor-agent"],
-      "issue": "SQLite 数据中台缺少业务数据库文件、Schema、写入任务和查询证据。",
-      "recommended_evidence": "脱敏 Schema、表关系图、查询截图和 Dashboard 数据链路。"
+      "resolution": "SQLite 数据中台真实写入业务数据。",
+      "confirmed_by": "user",
+      "confirmed_at": "2026-09-03"
     },
     {
       "id": "q-agent-brands",
       "experience_ids": ["fairland-competitor-agent"],
-      "issue": "最新简历中的 20+ 品牌与证据账本中水机试跑的 3 品牌口径需要拆分说明。",
-      "recommended_evidence": "按割草机/水机、正式/候选拆分的品牌和 URL 清单。"
+      "resolution": "品牌范围统一为正式监控 20+ 品牌。",
+      "confirmed_by": "user",
+      "confirmed_at": "2026-09-03"
     },
     {
       "id": "q-studio-outreach",
       "experience_ids": ["fairland-igarden"],
-      "issue": "114 家工作室在材料中分别表述为准备联络、已对接或合作对接。",
-      "recommended_evidence": "发送日志、回复统计及明确的合作阶段字段。"
+      "resolution": "已联络 114 家游戏工作室和 Steam 游戏开发者，并与北美多家游戏工作室进行会议交流。",
+      "confirmed_by": "user",
+      "confirmed_at": "2026-09-03"
     },
     {
       "id": "q-mindcare-sample",
       "experience_ids": ["mindcare"],
-      "issue": "MindCare 用户研究样本存在 N=12 与团队 N=60 两种口径。",
-      "recommended_evidence": "访谈记录索引、团队分工和样本去重后的研究报告。"
+      "resolution": "MindCare 用户研究样本统一为 N=60。",
+      "confirmed_by": "user",
+      "confirmed_at": "2026-09-03"
     },
     {
       "id": "q-sasa-sample",
       "experience_ids": ["sasa-beauty"],
-      "issue": "Sasa Beauty 用户访谈样本存在 20+ 与 N=158 两种口径。",
-      "recommended_evidence": "研究报告中定性访谈、问卷与其他样本的分类口径。"
+      "resolution": "Sasa Beauty 的 N=158 为全部研究样本。",
+      "confirmed_by": "user",
+      "confirmed_at": "2026-09-03"
     },
     {
       "id": "q-baike-school-scope",
       "experience_ids": ["baike-ai-education"],
-      "issue": "百科荣创相关方案覆盖范围存在 10 余所与 15 所两种口径。",
-      "recommended_evidence": "按产品实际落地、方案覆盖和项目交付分别整理高校清单。"
+      "resolution": "百科荣创相关方案覆盖范围统一为 15 所高校，并与 5 所产品实际落地区分。",
+      "confirmed_by": "user",
+      "confirmed_at": "2026-09-03"
     },
     {
       "id": "q-vibecoders-scale",
       "experience_ids": ["vibecoders"],
-      "issue": "社区活动存在 2 场/380+ 人与 5 场/1000+ 人两种时点口径。",
-      "recommended_evidence": "活动名称、日期、单场人数、推文链接和工作人员记录。"
+      "resolution": "VibeCoders 活动规模统一为 5 场、累计 1000+ 人。",
+      "confirmed_by": "user",
+      "confirmed_at": "2026-09-03"
     }
   ],
   "privacy": {

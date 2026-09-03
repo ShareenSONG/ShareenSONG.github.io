@@ -1,0 +1,441 @@
+{
+  "schema_version": 1,
+  "phase": 1,
+  "status": "design_direction_ready",
+  "updated_at": "2026-09-03",
+  "scope": {
+    "goal": "把 Youdoo 官网的消费电子视觉节奏转译为宋艾欣的 AI 产品经理个人网站。",
+    "deliverable": "设计方向、页面信息架构、内容映射、视觉令牌、动效原则和素材清单。",
+    "not_in_scope": [
+      "初始化 Next.js 项目",
+      "编写页面或组件",
+      "下载或复制参考站素材",
+      "确定最终公开文案",
+      "部署网站"
+    ]
+  },
+  "source_interpretation": {
+    "reference_url": "https://youdooplay.com/",
+    "reference_pages": [
+      "https://youdooplay.com/",
+      "https://youdooplay.com/News/",
+      "https://youdooplay.com/Support/",
+      "https://youdooplay.com/AboutUs/"
+    ],
+    "use": "复用布局比例、留白节奏、圆角语言、色彩关系和交互模式。",
+    "do_not_copy": [
+      "Youdoo Logo、吉祥物和品牌名称",
+      "游戏、家庭场景、产品渲染图和视频",
+      "原站营销文案、用户评价和联系方式",
+      "与个人履历无关的购买、客服和 App 下载功能"
+    ],
+    "adaptation_rule": "结构尽量高保真，身份、内容、素材和交互目的必须服务个人作品集。"
+  },
+  "reference_observations": {
+    "measured_at": "2026-09-03",
+    "desktop_1440": {
+      "container_max_width_px": 1180,
+      "container_side_margin_px": 130,
+      "header": {
+        "width_px": 1180,
+        "height_px": 56,
+        "top_px": 24,
+        "border_radius_px": 999,
+        "position": "fixed"
+      },
+      "home_hero": {
+        "height_px": 900,
+        "title_size_px": 72,
+        "title_line_height_px": 72,
+        "subtitle_size_px": 32,
+        "media_behavior": "full-bleed product image with a following 100vh autoplay video section"
+      },
+      "home_feature_card": {
+        "width_px": 1200,
+        "height_px": 675,
+        "border_radius_px": 24
+      },
+      "news": {
+        "hero_width_px": 1180,
+        "hero_height_px": 445,
+        "hero_radius_px": 24,
+        "columns": 4,
+        "card_width_px": 285,
+        "grid_gap_px": 14,
+        "image_size_px": [285, 213],
+        "image_radius_px": 14
+      },
+      "support": {
+        "sidebar_width_px": 280,
+        "content_width_px": 885,
+        "card_width_px": 403,
+        "card_height_px": 332,
+        "card_radius_px": 16,
+        "card_padding_px": 20,
+        "card_gap_px": 15
+      },
+      "about": {
+        "reading_width_px": 800,
+        "top_padding_px": 180,
+        "body_size_px": 16,
+        "body_line_height_px": 19
+      }
+    },
+    "mobile_390": {
+      "header_width_px": 360,
+      "header_height_px": 56,
+      "header_left_px": 11,
+      "header_top_px": 24,
+      "hero_height_px": 844,
+      "hero_title_size_px": 40,
+      "hero_title_line_height_px": 40,
+      "hero_subtitle_size_px": 15,
+      "section_title_size_px": 26,
+      "navigation": "logo plus circular hamburger"
+    },
+    "color_and_type": {
+      "brand_yellow": "#FFDF00",
+      "ink": "#131924",
+      "soft_canvas": "#F7F8FA",
+      "hero_canvas": "#FCFAFB",
+      "font_stack": "HarmonyOS Sans SC, PingFang SC, Microsoft YaHei, system-ui, sans-serif"
+    },
+    "motion": {
+      "libraries_observed": ["Lenis", "Swiper", "GSAP", "ScrollTrigger"],
+      "patterns_observed": [
+        "品牌加载页",
+        "固定胶囊 Header",
+        "导航文字翻转 Hover",
+        "100vh 影像章节",
+        "Sticky/Pinned 滚动场景",
+        "径向项目轮盘",
+        "横向无缝图片带",
+        "点评轮播",
+        "弹窗淡入淡出"
+      ],
+      "header_transition": "0.75s cubic-bezier(0.25, 1.2, 0.5, 1)",
+      "nav_transition": "0.48s cubic-bezier(0.25, 1.2, 0.5, 1)"
+    }
+  },
+  "brand_direction": {
+    "name_zh": "宋艾欣",
+    "name_en": "Shareen Song",
+    "role": "AI 产品经理",
+    "positioning": "把复杂 AI 能力转化为有边界、可验证、可交付的产品闭环。",
+    "personality": ["清醒", "有行动力", "好奇", "有温度", "可信"],
+    "visual_keywords": ["playful precision", "bright", "rounded", "editorial", "product-minded", "human"],
+    "reference_traits_to_keep": [
+      "强识别度黄色",
+      "黑色超大标题",
+      "低密度大留白",
+      "大比例项目图像",
+      "圆角消费电子卡片",
+      "按视口组织的章节节奏",
+      "克制但有物理感的动效"
+    ],
+    "personalization": [
+      "用姓名字标替换产品 Logo",
+      "用作品证据替换商品卖点",
+      "用项目决策替换产品功能",
+      "用成长经历与兴趣替换品牌故事",
+      "用联系合作替换购买 CTA"
+    ]
+  },
+  "design_tokens": {
+    "color": {
+      "signal_yellow": "#FFDF00",
+      "ink": "#131924",
+      "muted_ink": "#5E6470",
+      "canvas": "#F7F8FA",
+      "paper": "#FCFAFB",
+      "white": "#FFFFFF",
+      "violet_scene": "#8547FF",
+      "coral_scene": "#FF8A65",
+      "line": "#E4E7EC",
+      "success": "#2E9B67"
+    },
+    "typography": {
+      "font_stack": "HarmonyOS Sans SC, Inter, PingFang SC, Microsoft YaHei, system-ui, sans-serif",
+      "desktop": {
+        "hero_title": "72px/0.98/700",
+        "section_title": "clamp(56px, 6.25vw, 90px)/1/700",
+        "page_title": "72px/1.05/600",
+        "case_title": "40px/1.2/700",
+        "body_large": "20px/1.55/400",
+        "body": "16px/1.6/400",
+        "label": "13px/1/700"
+      },
+      "mobile": {
+        "hero_title": "40px/1/700",
+        "section_title": "32px/1.1/700",
+        "page_title": "40px/1.05/700",
+        "body_large": "17px/1.55/400",
+        "body": "15px/1.65/400",
+        "label": "12px/1/700"
+      }
+    },
+    "layout": {
+      "desktop_container_px": 1180,
+      "wide_media_px": 1200,
+      "desktop_gutter_px": 130,
+      "tablet_gutter_px": 32,
+      "mobile_gutter_px": 16,
+      "hero_min_height": "100svh",
+      "standard_section_padding": "clamp(96px, 10vw, 160px) 0"
+    },
+    "radius": {
+      "pill_px": 999,
+      "feature_px": 24,
+      "card_px": 16,
+      "image_px": 14,
+      "compact_px": 12
+    },
+    "shadow": {
+      "header": "0 10px 30px rgba(19, 25, 36, 0.08)",
+      "card_hover": "0 18px 50px rgba(19, 25, 36, 0.12)"
+    },
+    "motion": {
+      "reveal": "600ms cubic-bezier(0.22, 1, 0.36, 1)",
+      "header": "750ms cubic-bezier(0.25, 1.2, 0.5, 1)",
+      "nav_flip": "480ms cubic-bezier(0.25, 1.2, 0.5, 1)",
+      "card_hover": "320ms cubic-bezier(0.22, 1, 0.36, 1)",
+      "scroll_scene": "desktop pinned; mobile natural flow",
+      "reduced_motion": "disable pinning, parallax, auto-advance and transform-heavy transitions"
+    }
+  },
+  "navigation": {
+    "brand_mark": "SA / SHAREEN",
+    "items": [
+      {"label": "精选项目", "href": "/work"},
+      {"label": "经历", "href": "/#experience"},
+      {"label": "随笔", "href": "/notes"},
+      {"label": "关于", "href": "/about"}
+    ],
+    "secondary_action": {"label": "简历", "href": "/resume"},
+    "primary_action": {"label": "联系我", "href": "/#contact"},
+    "mobile_pattern": "logo plus circular hamburger; full-height yellow navigation sheet"
+  },
+  "page_map": [
+    {
+      "path": "/",
+      "name": "首页",
+      "purpose": "在 90 秒内建立定位、展示三项旗舰证据并引导深入案例。",
+      "reference_pattern": "Youdoo Home 的沉浸式全屏章节",
+      "sections": [
+        "home-hero",
+        "home-motion-intro",
+        "home-flagship-work",
+        "home-dual-lens",
+        "home-proof-system",
+        "home-experience",
+        "home-human-side",
+        "home-contact"
+      ]
+    },
+    {
+      "path": "/work",
+      "name": "项目",
+      "purpose": "按类型浏览案例，并进入可验证的项目详情。",
+      "reference_pattern": "Support 的侧栏加双列卡片与 News 的筛选条",
+      "sections": ["work-hero", "work-filter", "work-grid", "work-archive"]
+    },
+    {
+      "path": "/work/[slug]",
+      "name": "案例详情",
+      "purpose": "完整呈现问题、角色、决策、方案、验证、结果与边界。",
+      "reference_pattern": "大幅媒体章节加编辑型正文",
+      "sections": ["case-hero", "case-context", "case-process", "case-evidence", "case-reflection", "case-next"]
+    },
+    {
+      "path": "/notes",
+      "name": "随笔",
+      "purpose": "呈现 AI 产品、研究方法、研学与行业观察。",
+      "reference_pattern": "News 的 445px Hero、筛选条和四列卡片",
+      "sections": ["notes-hero", "notes-filter", "notes-grid"]
+    },
+    {
+      "path": "/about",
+      "name": "关于",
+      "purpose": "通过长文、时间线和兴趣补全人格，而不是重复简历。",
+      "reference_pattern": "About 的 800px 阅读宽度与大留白",
+      "sections": ["about-essay", "about-timeline", "about-beyond-work", "about-contact"]
+    }
+  ],
+  "home_sections": [
+    {
+      "id": "home-hero",
+      "priority": "S",
+      "objective": "第一屏同时建立姓名、岗位和价值主张。",
+      "content": {
+        "eyebrow": "AI PRODUCT MANAGER",
+        "title": "宋艾欣 / Shareen Song",
+        "statement": "把复杂 AI 能力，做成可验证的产品闭环。",
+        "primary_cta": "查看精选项目",
+        "secondary_cta": "认识我"
+      },
+      "layout": "桌面左侧文字、右侧人物与项目物件的层叠视觉；移动端文字居中、视觉下沉。",
+      "reference_pattern": "产品首屏",
+      "motion": "标题分行进入，人物/物件轻微错层；无持续漂浮。",
+      "asset_needs": ["透明背景半身肖像", "3–5 个可脱敏项目物件或界面碎片"]
+    },
+    {
+      "id": "home-motion-intro",
+      "priority": "A",
+      "objective": "用一屏视觉快速表现从洞察到交付的工作方式。",
+      "content": {
+        "sequence": ["发现问题", "定义边界", "搭建流程", "验证结果"]
+      },
+      "layout": "100svh 全幅短片或可降级的四帧视觉叙事。",
+      "reference_pattern": "Hero 后的全屏产品视频",
+      "motion": "视频自动静音循环；无视频时使用滚动驱动的四帧切换。",
+      "asset_needs": ["10–15 秒个人项目蒙太奇", "静态 Poster"]
+    },
+    {
+      "id": "home-flagship-work",
+      "priority": "S",
+      "objective": "集中呈现三个最强案例，避免首页成为简历列表。",
+      "content": {
+        "experience_ids": ["fairland-competitor-agent", "fairland-igarden", "baike-ai-education"]
+      },
+      "layout": "桌面使用三个 100vh Sticky 场景；移动端改为自然纵向卡片。",
+      "reference_pattern": "游戏轮盘与场景卡片",
+      "motion": "滚动切换背景色、关键数字和主视觉；每个案例保留清晰详情入口。",
+      "asset_needs": ["Agent Dashboard 脱敏截图", "iGarden PRD/原型", "数字人教育产品或交付现场"]
+    },
+    {
+      "id": "home-dual-lens",
+      "priority": "A",
+      "objective": "解释产品能力与技术理解如何共同工作。",
+      "content": {
+        "modes": [
+          {"label": "产品判断", "detail": "用户、场景、价值与优先级"},
+          {"label": "AI 构建", "detail": "Agent、数据、边界与异常闭环"}
+        ]
+      },
+      "layout": "双模式切换，文字与对应产物并列。",
+      "reference_pattern": "影视/游戏双模式",
+      "motion": "Tab、键盘与滚动均可切换；切换只改变内容和媒体，不改变整体高度。",
+      "asset_needs": ["研究框架", "工作流图", "原型与数据产物"]
+    },
+    {
+      "id": "home-proof-system",
+      "priority": "A",
+      "objective": "把可信度变成视觉系统，展示证据与边界意识。",
+      "content": {
+        "cards": [
+          {"title": "事实与证据", "detail": "关键结论保留来源、快照与验证状态"},
+          {"title": "边界与兜底", "detail": "区分规则、LLM 与人工复核的责任"}
+        ]
+      },
+      "layout": "两张大卡片，图示与短文并重。",
+      "reference_pattern": "健康守护双卡",
+      "motion": "进入视口后逐项点亮，避免自动播放复杂动画。",
+      "asset_needs": ["脱敏证据链示意", "异常处理流程图"]
+    },
+    {
+      "id": "home-experience",
+      "priority": "A",
+      "objective": "用简洁时间线说明成长路径。",
+      "content": {
+        "experience_ids": ["fairland-role", "baike-ai-education", "hkbu-masters", "jinan-bachelors"]
+      },
+      "layout": "横向年份轨道与四个节点，移动端变为纵向时间线。",
+      "reference_pattern": "横向无缝图片带的节奏感",
+      "motion": "桌面随滚动推进节点；移动端禁用横向劫持。",
+      "asset_needs": ["学校与工作阶段的可公开照片或图标"]
+    },
+    {
+      "id": "home-human-side",
+      "priority": "B",
+      "objective": "通过长期兴趣和社区参与建立个人温度。",
+      "content": {
+        "experience_ids": ["vibecoders", "techxplore-europe", "jinan-psychology-association"],
+        "personal_dimensions": ["古筝", "瑜伽", "书法", "电影"]
+      },
+      "layout": "三至五张横向生活图卡，保留边缘露出。",
+      "reference_pattern": "生活方式图片带与点评 Carousel",
+      "motion": "拖拽/触控滑动；不自动快速轮播。",
+      "asset_needs": ["社区活动", "欧洲研学", "古筝/瑜伽/书法照片"]
+    },
+    {
+      "id": "home-contact",
+      "priority": "S",
+      "objective": "以明确但不销售化的方式收束页面。",
+      "content": {
+        "label": "LET’S BUILD SOMETHING USEFUL",
+        "title": "如果你也在把 AI 变成真正的产品，我们聊聊。",
+        "primary_cta": "联系我",
+        "secondary_cta": "查看简历"
+      },
+      "layout": "左侧个性主视觉，右侧标题和两个 CTA，底部进入页脚。",
+      "reference_pattern": "线上购买章节",
+      "motion": "CTA 箭头位移和背景轻微缩放；不使用强烈发光。",
+      "asset_needs": ["一张轻松但专业的个人照片"]
+    }
+  ],
+  "case_study_template": {
+    "required_sections": [
+      "背景与问题",
+      "我的角色与协作边界",
+      "研究与约束",
+      "关键决策",
+      "方案与流程",
+      "验证与证据",
+      "结果",
+      "复盘与下一步"
+    ],
+    "evidence_labels": ["已上线", "已验证", "方案阶段", "团队成果", "个人贡献", "待补证"],
+    "rule": "任何量化结果必须继承经历目录中的验证状态与 caution。"
+  },
+  "responsive_strategy": [
+    {
+      "range": "1440px and above",
+      "behavior": "1180px 主容器、全屏场景、Pinned 案例、四列内容卡片。"
+    },
+    {
+      "range": "1024px–1439px",
+      "behavior": "32–48px 页面留白、三列内容卡片、减少主视觉叠层。"
+    },
+    {
+      "range": "768px–1023px",
+      "behavior": "两列卡片、侧栏转顶部筛选、Pinned 场景缩短。"
+    },
+    {
+      "range": "375px–767px",
+      "behavior": "16px 留白、单列内容、40px Hero 标题、自然滚动、触控轮播、全屏菜单。"
+    }
+  ],
+  "asset_plan": [
+    {"priority": "P0", "asset": "首页半身肖像", "status": "missing", "requirements": "自然、干净背景、可抠图、至少 2400px 长边"},
+    {"priority": "P0", "asset": "竞品 Agent 案例视觉", "status": "needs_sanitization", "requirements": "Dashboard、流程图、证据链、异常示例"},
+    {"priority": "P0", "asset": "iGarden 案例视觉", "status": "needs_sanitization", "requirements": "研究框架、产品生态、核心流程与原型"},
+    {"priority": "P0", "asset": "数字人教育产品视觉", "status": "missing", "requirements": "界面、部署或宣讲现场，避免客户敏感信息"},
+    {"priority": "P1", "asset": "个人项目蒙太奇", "status": "missing", "requirements": "10–15 秒、静音可读、另备 Poster"},
+    {"priority": "P1", "asset": "个人生活与社区照片", "status": "missing", "requirements": "VibeCoders、研学、古筝、瑜伽或书法"},
+    {"priority": "P1", "asset": "姓名字标", "status": "to_design", "requirements": "SA / SHAREEN，黑色与反白版本"}
+  ],
+  "design_guardrails": [
+    "黄色是识别色，不铺满所有章节；用白色和浅灰提供呼吸感。",
+    "紫色只用于一到两个沉浸场景，不做通用 AI 蓝紫渐变。",
+    "每屏只表达一个主要观点，正文细节进入案例页。",
+    "不使用技能百分比、无证据的推荐语或虚构客户评价。",
+    "动效必须可跳过并支持 prefers-reduced-motion。",
+    "移动端不使用横向滚动劫持或长时间 Sticky 场景。",
+    "所有公开素材都需要确认版权、隐私和公司脱敏边界。"
+  ],
+  "next_phase": {
+    "name": "低保真页面框架与素材盘点",
+    "inputs_needed": [
+      "确认首页主要受众：招聘经理、业务负责人或泛个人品牌访客",
+      "确认是否保留黄色为个人主色",
+      "提供或选择 P0 肖像与三个旗舰案例素材",
+      "优先解决经历目录中的首页级证据冲突"
+    ],
+    "outputs": [
+      "首页桌面与移动端线框",
+      "Work、Notes、About 页面线框",
+      "旗舰案例内容骨架",
+      "素材可公开性清单"
+    ]
+  }
+}

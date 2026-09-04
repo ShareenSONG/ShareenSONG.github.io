@@ -43,6 +43,14 @@ describe('portfolio home page', () => {
     expect(stylesheet).not.toContain('#ffdf00');
   });
 
+  it('provides a color-safe A4 print layout for PDF export', () => {
+    expect(stylesheet).toContain('@media print');
+    expect(stylesheet).toContain('@page { size: A4 portrait; margin: 0; }');
+    expect(stylesheet).toContain('print-color-adjust: exact !important');
+    expect(stylesheet).toContain('break-after: page');
+    expect(stylesheet).toContain('.personal-image--portrait { display: none; }');
+  });
+
   it('publishes portfolio Open Graph and X metadata', () => {
     expect(layoutSource).toContain("url: '/og.png'");
     expect(layoutSource).toContain("images: ['/og.png']");

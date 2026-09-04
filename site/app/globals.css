@@ -548,6 +548,7 @@ img { display: block; }
 .footer-links span { grid-column: 1 / -1; color: var(--muted); font-size: 9px; letter-spacing: 0.12em; }
 .footer-links strong { overflow-wrap: anywhere; font-family: var(--display); font-size: clamp(16px, 1.6vw, 22px); font-weight: 400; }
 .footer-links i { font-style: normal; }
+.footer-meta { display: flex; justify-content: space-between; gap: 24px; margin-top: 34px; color: var(--muted); font-size: 8px; letter-spacing: 0.1em; }
 
 .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; z-index: 999; display: none; pointer-events: none; will-change: transform; }
 .has-custom-cursor .cursor-dot, .has-custom-cursor .cursor-ring { display: block; }
@@ -678,4 +679,65 @@ img { display: block; }
     transition-duration: 0.01ms !important;
   }
   .cursor-dot, .cursor-ring { display: none !important; }
+}
+
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html, body { width: 210mm; }
+  .site-header, .mobile-menu, .skip-link, .cursor-dot, .cursor-ring { display: none !important; }
+  body::after { position: absolute; }
+
+  .identity-hero {
+    min-height: 297mm;
+    padding: 22mm 15mm 12mm;
+    break-after: page;
+  }
+
+  .hero-image { width: 62% !important; }
+  .identity-copy h1 { font-size: 30mm; }
+
+  .about-section, .experience-section, .thoughts-preview, .personal-preview {
+    padding: 22mm 15mm;
+    break-after: page;
+  }
+
+  .about-section, .experience-section { min-height: 297mm; }
+  .selected-work { padding: 22mm 15mm; }
+  .project-stack { margin-right: -15mm; margin-left: -15mm; }
+
+  .project-feature {
+    grid-template-columns: 46% 54%;
+    min-height: 245mm;
+    break-inside: avoid;
+  }
+
+  .project-art { min-height: 245mm; }
+  .project-copy { min-height: 245mm; padding: 9mm; }
+  .project-copy h3 { font-size: 16mm; }
+
+  .thoughts-preview, .personal-preview { min-height: 297mm; }
+  .thoughts-preview, .personal-preview { break-before: page; }
+  .thought-grid { gap: 4mm; }
+  .thought-card { min-height: 92mm; }
+  .selected-work > .text-link, .thoughts-preview > .text-link { display: none; }
+  .personal-grid { grid-template-columns: 42% 58%; grid-template-rows: auto; gap: 8mm; margin-top: 20mm; }
+  .personal-copy { grid-row: auto; padding-right: 0; }
+  .personal-image--wide { align-self: center; }
+  .personal-image--portrait { display: none; }
+
+  .site-footer {
+    min-height: 297mm;
+    padding: 22mm 15mm 12mm;
+    break-before: page;
+  }
+
+  .footer-meta { flex-wrap: wrap; row-gap: 3mm; }
 }

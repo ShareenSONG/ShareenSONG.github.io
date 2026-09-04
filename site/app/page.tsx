@@ -1,253 +1,155 @@
-'use client';
-
-import { useEffect, useRef, useState } from 'react';
-
-const caseStudies = [
-  {
-    number: '01',
-    eyebrow: 'SYSTEM / RESEARCH',
-    title: 'Signals into\nstructure.',
-    note: 'Placeholder for a flagship case study',
-    tone: 'signal',
-  },
-  {
-    number: '02',
-    eyebrow: 'PRODUCT / DIRECTION',
-    title: 'Ideas into\ninteractions.',
-    note: 'Placeholder for a flagship case study',
-    tone: 'orbit',
-  },
-  {
-    number: '03',
-    eyebrow: 'DELIVERY / PROOF',
-    title: 'Intent into\noutcomes.',
-    note: 'Placeholder for a flagship case study',
-    tone: 'frame',
-  },
-] as const;
+import Image from 'next/image';
+import Link from 'next/link';
+import ProjectArtwork from './components/ProjectArtwork';
+import { contact, experience, projects, thoughtTopics } from './content';
 
 export default function Home() {
-  const [compactHeader, setCompactHeader] = useState(false);
-  const cursorDot = useRef<HTMLDivElement>(null);
-  const cursorRing = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const onScroll = () => setCompactHeader(window.scrollY > 72);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
-    const finePointer = window.matchMedia('(pointer: fine)');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (!finePointer.matches || reducedMotion.matches) return;
-
-    let pointerX = window.innerWidth / 2;
-    let pointerY = window.innerHeight / 2;
-    let ringX = pointerX;
-    let ringY = pointerY;
-    let frame = 0;
-
-    const onPointerMove = (event: PointerEvent) => {
-      pointerX = event.clientX;
-      pointerY = event.clientY;
-      cursorDot.current?.style.setProperty('transform', `translate3d(${pointerX}px, ${pointerY}px, 0)`);
-
-      const target = event.target instanceof Element ? event.target.closest('[data-cursor]') : null;
-      const label = target?.getAttribute('data-cursor') ?? '';
-      cursorRing.current?.setAttribute('data-label', label);
-      cursorRing.current?.classList.toggle('cursor--active', Boolean(label));
-    };
-
-    const animateRing = () => {
-      ringX += (pointerX - ringX) * 0.16;
-      ringY += (pointerY - ringY) * 0.16;
-      cursorRing.current?.style.setProperty('transform', `translate3d(${ringX}px, ${ringY}px, 0)`);
-      frame = window.requestAnimationFrame(animateRing);
-    };
-
-    document.documentElement.classList.add('has-custom-cursor');
-    window.addEventListener('pointermove', onPointerMove, { passive: true });
-    frame = window.requestAnimationFrame(animateRing);
-
-    return () => {
-      document.documentElement.classList.remove('has-custom-cursor');
-      window.removeEventListener('pointermove', onPointerMove);
-      window.cancelAnimationFrame(frame);
-    };
-  }, []);
-
   return (
-    <div className="site-shell">
-      <a className="skip-link" href="#main-content">
-        Skip to content
-      </a>
+    <main id="main-content">
+      <section className="identity-hero" id="top" aria-labelledby="hero-title">
+        <Image
+          className="hero-image"
+          src="/images/shareen-portrait.jpg"
+          alt="Shareen Song standing in soft daylight"
+          fill
+          sizes="(max-width: 720px) 100vw, 58vw"
+          priority
+        />
+        <div className="hero-shade" aria-hidden="true" />
+        <div className="hero-topline label-row">
+          <span>SHAREEN SONG</span>
+          <span>AI / PRODUCT / GROWTH</span>
+          <span>SHENZHEN · HONG KONG</span>
+        </div>
 
-      <header className={`site-header ${compactHeader ? 'site-header--compact' : ''}`}>
-        <a className="wordmark magnetic" href="#top" data-cursor="GO">
-          <span>PORTFOLIO</span>
-          <span className="wordmark-mark" aria-hidden="true">/</span>
-          <span>00</span>
+        <div className="identity-copy">
+          <p className="eyebrow">AI Product Manager · Builder · Researcher</p>
+          <h1 id="hero-title"><em>Shareen</em><span>Song.</span></h1>
+          <p className="hero-statement">Exploring how AI, products and human behavior come together.</p>
+        </div>
+
+        <div className="hero-actions" aria-label="Contact and profile links">
+          <a href={`mailto:${contact.email}`} data-cursor="MAIL">EMAIL ↗</a>
+          <a href={contact.github} target="_blank" rel="noreferrer" data-cursor="OPEN">GITHUB ↗</a>
+          <a href={contact.resume} target="_blank" rel="noreferrer" data-cursor="OPEN">RESUME ↗</a>
+        </div>
+
+        <a href="#about" className="scroll-cue" aria-label="Scroll to about" data-cursor="DOWN">
+          <span>SCROLL TO KNOW ME</span><i aria-hidden="true">↓</i>
         </a>
-        <p className="header-note">BLACK / MOTION / EDITORIAL</p>
-        <nav aria-label="Demo sections">
-          <a className="flip-link magnetic" href="#work" data-cursor="GO">
-            <span data-label="WORK">WORK</span>
-          </a>
-          <a className="flip-link magnetic" href="#proof" data-cursor="GO">
-            <span data-label="METHOD">METHOD</span>
-          </a>
-          <a className="flip-link magnetic" href="#end" data-cursor="GO">
-            <span data-label="INDEX">INDEX</span>
-          </a>
-        </nav>
-      </header>
+      </section>
 
-      <main id="main-content">
-        <section className="hero" id="top" aria-labelledby="hero-title">
-          <div className="hero-art" aria-hidden="true">
-            <div className="hero-halo" />
-            <div className="hero-silhouette" />
-            <div className="hero-scanline" />
+      <section className="about-section light-section" id="about" aria-labelledby="about-title">
+        <div className="section-label"><span>01</span><span>ABOUT</span></div>
+        <div className="about-grid">
+          <h2 id="about-title">I turn <em>complex systems</em> into products people can understand and use.</h2>
+          <div className="about-copy">
+            <p>My path moves between computer science, AI product work, business delivery, and the study of human behavior. I am interested in the moment when a technical capability becomes a clear product decision.</p>
+            <p>I work from evidence: understand the context, define the real problem, separate model ability from product responsibility, and make every important choice explainable.</p>
+            <ul aria-label="Working principles">
+              <li>Research before feature lists</li>
+              <li>Boundaries before automation</li>
+              <li>Evidence before confident claims</li>
+            </ul>
           </div>
+        </div>
+      </section>
 
-          <div className="hero-topline label-row">
-            <span>STYLE STUDY</span>
-            <span>PHASE 02 / DEMO</span>
-            <span>NO PERSONAL DATA</span>
-          </div>
+      <section className="experience-section" id="experience" aria-labelledby="experience-title">
+        <div className="section-label section-label--dark"><span>02</span><span>EXPERIENCE</span></div>
+        <div className="section-heading-row">
+          <p>WORK / EDUCATION</p>
+          <h2 id="experience-title">A technical foundation.<br /><em>A product trajectory.</em></h2>
+        </div>
+        <div className="timeline-list">
+          {experience.map((item, index) => (
+            <article className="timeline-row" key={`${item.organization}-${item.time}`}>
+              <span className="timeline-number">0{index + 1}</span>
+              <div><small>{item.type}</small><h3>{item.organization}</h3><p>{item.role}</p></div>
+              <div className="timeline-description"><p>{item.description}</p></div>
+              <div className="timeline-meta"><span>{item.time}</span><span>{item.location}</span></div>
+            </article>
+          ))}
+        </div>
+      </section>
 
-          <div className="hero-copy">
-            <p className="hero-kicker">A portfolio concept for intelligent products</p>
-            <h1 id="hero-title">
-              <span className="serif italic">Intelligence</span>
-              <span>made tangible.</span>
-            </h1>
-          </div>
+      <section className="selected-work" id="work" aria-labelledby="work-title">
+        <div className="section-label section-label--dark"><span>03</span><span>SELECTED WORK</span></div>
+        <div className="section-heading-row work-heading-row">
+          <p>THREE CASES / REAL CONTEXT</p>
+          <h2 id="work-title">Portfolio explains<br /><em>why I did it.</em></h2>
+        </div>
 
-          <div className="hero-footer">
-            <p>SCROLL TO ENTER</p>
-            <p className="hero-counter"><span>00</span> / 04</p>
-            <a href="#work" className="round-link" aria-label="View selected work" data-cursor="DOWN">
-              <span aria-hidden="true">↓</span>
-            </a>
-          </div>
-        </section>
-
-        <section className="work-intro" id="work" aria-labelledby="work-title">
-          <div className="section-index">
-            <span>01</span>
-            <span>SELECTED WORK</span>
-          </div>
-          <div className="work-heading">
-            <p>THREE SCENES / PLACEHOLDER CONTENT</p>
-            <h2 id="work-title">Work that turns<br /><em>complexity</em> into clarity.</h2>
-          </div>
-        </section>
-
-        <section className="case-scenes" aria-label="Placeholder case studies">
-          {caseStudies.map((item) => (
-            <article className={`case-scene case-scene--${item.tone}`} id={`scene-${item.number}`} key={item.number}>
-              <div className="case-visual" data-cursor="VIEW" aria-label={`${item.note}: ${item.number}`} role="img">
-                <div className="visual-grid" aria-hidden="true" />
-                <span className="visual-code" aria-hidden="true">{item.number}</span>
-                {item.tone === 'signal' && <div className="signal-map" aria-hidden="true"><i /><i /><i /><i /></div>}
-                {item.tone === 'orbit' && <div className="orbit-system" aria-hidden="true"><i /><i /><i /></div>}
-                {item.tone === 'frame' && <div className="proof-frame" aria-hidden="true"><span>PROOF</span><i /></div>}
-              </div>
-              <div className="case-copy">
-                <div className="case-meta">
-                  <span>{item.number}</span>
-                  <span>{item.eyebrow}</span>
+        <div className="project-stack">
+          {projects.map((project) => (
+            <article className="project-feature" key={project.slug}>
+              <Link href={`/work/${project.slug}`} className="project-art-link" aria-label={`View ${project.title} case study`} data-cursor="VIEW">
+                <ProjectArtwork project={project} />
+              </Link>
+              <div className="project-copy">
+                <div className="project-meta"><span>{project.number}</span><span>{project.year}</span><span>{project.status}</span></div>
+                <div>
+                  <p className="project-tags">{project.tags.join(' / ')}</p>
+                  <h3>{project.title}</h3>
+                  <p className="project-summary">{project.summary}</p>
                 </div>
-                <h3>{item.title.split('\n').map((line) => <span key={line}>{line}</span>)}</h3>
-                <div className="case-bottom">
-                  <p>{item.note}</p>
-                  <a href="#proof" aria-label={`Open placeholder case ${item.number}`} data-cursor="OPEN">EXPLORE <span>↗</span></a>
+                <div className="project-bottom">
+                  <p><span>ROLE</span>{project.role}</p>
+                  <Link href={`/work/${project.slug}`} data-cursor="OPEN">VIEW CASE <span aria-hidden="true">↗</span></Link>
                 </div>
               </div>
             </article>
           ))}
-        </section>
+        </div>
 
-        <section className="case-index" aria-labelledby="index-title">
-          <div className="section-index section-index--light">
-            <span>02</span>
-            <span>QUICK INDEX</span>
-          </div>
-          <h2 id="index-title">A faster way<br />through the work.</h2>
-          <div className="index-list">
-            {caseStudies.map((item) => (
-              <a href={`#scene-${item.number}`} data-cursor="GO" key={item.number}>
-                <span>{item.number}</span>
-                <strong>{item.title.replace('\n', ' ')}</strong>
-                <small>{item.eyebrow}</small>
-                <i aria-hidden="true">↗</i>
-              </a>
-            ))}
-          </div>
-        </section>
+        <Link className="text-link" href="/work" data-cursor="GO">VIEW ALL WORK <span>↗</span></Link>
+      </section>
 
-        <section className="proof-editorial" id="proof" aria-labelledby="proof-title">
-          <div className="section-index section-index--ink">
-            <span>03</span>
-            <span>PROOF / METHOD</span>
-          </div>
-          <div className="proof-lead">
-            <p>EDITORIAL MODE</p>
-            <h2 id="proof-title">Evidence before<br /><em>decoration.</em></h2>
-            <div className="proof-statement">
-              <span className="proof-rule" aria-hidden="true" />
-              <p>Real artifacts will live here later. For this review, abstract frames verify the intended contrast, pace, type scale, and gallery rhythm.</p>
-            </div>
-          </div>
+      <section className="thoughts-preview light-section" id="thoughts" aria-labelledby="thoughts-title">
+        <div className="section-label"><span>04</span><span>AI / THOUGHTS</span></div>
+        <div className="section-heading-row section-heading-row--ink">
+          <p>AN EXTERNAL INDEX</p>
+          <h2 id="thoughts-title">Thinking in public,<br /><em>without another CMS.</em></h2>
+        </div>
+        <div className="thought-grid">
+          {thoughtTopics.map((thought) => {
+            const content = (
+              <>
+                <div><span>{thought.date}</span><span>{thought.tag}</span></div>
+                <h3>{thought.title}</h3>
+                <p>{thought.description}</p>
+                <strong>{thought.source} {thought.href ? '↗' : ''}</strong>
+              </>
+            );
+            return thought.href ? (
+              <a href={thought.href} target="_blank" rel="noreferrer" className="thought-card" data-cursor="READ" key={thought.title}>{content}</a>
+            ) : (
+              <article className="thought-card thought-card--draft" key={thought.title}>{content}</article>
+            );
+          })}
+        </div>
+        <Link className="text-link text-link--ink" href="/thoughts" data-cursor="GO">OPEN THOUGHTS INDEX <span>↗</span></Link>
+      </section>
 
-          <div className="editorial-gallery">
-            <figure>
-              <div className="editorial-frame editorial-frame--dark" data-cursor="VIEW">
-                <span>01</span>
-                <div aria-hidden="true"><i /><i /><i /></div>
-                <small>PROCESS</small>
-              </div>
-              <figcaption><span>ARTIFACT PLACEHOLDER</span><span>RESEARCH / FLOW</span></figcaption>
-            </figure>
-            <figure>
-              <div className="editorial-frame editorial-frame--red" data-cursor="VIEW">
-                <span>02</span>
-                <div aria-hidden="true"><i /><i /><i /><i /></div>
-                <small>BOUNDARY</small>
-              </div>
-              <figcaption><span>ARTIFACT PLACEHOLDER</span><span>DECISION / PROOF</span></figcaption>
-            </figure>
+      <section className="personal-preview" aria-labelledby="personal-title">
+        <div className="section-label section-label--dark"><span>05</span><span>LIFE / PERSONAL</span></div>
+        <div className="personal-grid">
+          <div className="personal-copy">
+            <p>BEYOND THE ROLE</p>
+            <h2 id="personal-title">A person before<br /><em>a job title.</em></h2>
+            <p>Travel, cinema, nature, eleven years of yoga, Grade 10 guzheng, and the small observations that keep my product instincts human.</p>
+            <Link href="/life" data-cursor="OPEN">MORE ABOUT ME <span>↗</span></Link>
           </div>
-
-          <div className="principles" aria-label="Design principles">
-            <p>DESIGN PRINCIPLES</p>
-            <ol>
-              <li><span>01</span><strong>Cinematic, not theatrical.</strong><small>Black space builds focus; motion explains hierarchy.</small></li>
-              <li><span>02</span><strong>Precise, not clinical.</strong><small>Fine rules and evidence sit beside human typography.</small></li>
-              <li><span>03</span><strong>Expressive, not noisy.</strong><small>Oxblood appears only where attention is earned.</small></li>
-            </ol>
-          </div>
-        </section>
-
-        <footer className="site-footer" id="end">
-          <div className="footer-glow" aria-hidden="true" />
-          <div className="footer-labels label-row">
-            <span>STYLE REVIEW</span>
-            <span>VERSION 01</span>
-            <span>SEPTEMBER 2026</span>
-          </div>
-          <p className="footer-kicker">End of visual direction demo</p>
-          <h2><span>Does this feel</span><em>like the right world?</em></h2>
-          <a className="footer-return" href="#top" data-cursor="UP">BACK TO TOP <span>↑</span></a>
-          <p className="footer-note">All names, metrics, project details, and personal information are intentionally omitted.</p>
-        </footer>
-      </main>
-
-      <div className="cursor-dot" ref={cursorDot} aria-hidden="true" />
-      <div className="cursor-ring" ref={cursorRing} aria-hidden="true" />
-    </div>
+          <figure className="personal-image personal-image--wide">
+            <Image src="/images/harbour-sunset.jpg" alt="Shareen by Victoria Harbour at sunset" fill sizes="(max-width: 720px) 100vw, 48vw" />
+            <figcaption>HONG KONG / GOLDEN HOUR</figcaption>
+          </figure>
+          <figure className="personal-image personal-image--portrait">
+            <Image src="/images/un-visit.jpg" alt="Shareen visiting the United Nations in Geneva" fill sizes="(max-width: 720px) 100vw, 28vw" />
+            <figcaption>GENEVA / LEARNING EXPEDITION</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
   );
 }

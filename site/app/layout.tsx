@@ -1,27 +1,31 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import SiteChrome from './components/SiteChrome';
 
 const siteOrigin = process.env.NEXT_PUBLIC_SITE_ORIGIN ?? 'https://black-motion-editorial-style-demo.aixinsong08.chatgpt.site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
-  title: 'BLACK / MOTION / EDITORIAL — Style Demo',
-  description: 'A content-neutral visual direction demo for a cinematic editorial portfolio.',
+  title: {
+    default: 'Shareen Song — AI Product Manager',
+    template: '%s — Shareen Song',
+  },
+  description: 'Portfolio of Shareen Song, an AI product manager turning complex AI capabilities into bounded, verifiable, and deliverable product systems.',
   openGraph: {
-    title: 'BLACK / MOTION / EDITORIAL — Style Demo',
-    description: 'A content-neutral visual direction demo for a cinematic editorial portfolio.',
+    title: 'Shareen Song — AI Product Manager',
+    description: 'AI, product judgment, and human behavior—turned into products that can be understood, tested, and delivered.',
     type: 'website',
     images: [{
       url: '/og.png',
-      width: 1730,
-      height: 909,
-      alt: 'BLACK / MOTION / EDITORIAL — Portfolio Style Demo',
+      width: 1200,
+      height: 630,
+      alt: 'Shareen Song — AI Product Manager',
     }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BLACK / MOTION / EDITORIAL — Style Demo',
-    description: 'A content-neutral visual direction demo for a cinematic editorial portfolio.',
+    title: 'Shareen Song — AI Product Manager',
+    description: 'AI, product judgment, and human behavior—turned into products that can be understood, tested, and delivered.',
     images: ['/og.png'],
   },
 };
@@ -33,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body><SiteChrome>{children}</SiteChrome></body>
     </html>
   );
 }

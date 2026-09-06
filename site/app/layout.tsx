@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import SiteChrome from './components/SiteChrome';
 
-const siteOrigin = process.env.NEXT_PUBLIC_SITE_ORIGIN ?? 'https://black-motion-editorial-style-demo.aixinsong08.chatgpt.site';
+const siteOrigin = process.env.NEXT_PUBLIC_SITE_ORIGIN ?? 'https://shareensong.github.io';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),

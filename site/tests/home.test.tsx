@@ -52,6 +52,7 @@ describe('portfolio home page', () => {
   });
 
   it('publishes portfolio Open Graph and X metadata', () => {
+    expect(layoutSource).toContain("'https://shareensong.github.io'");
     expect(layoutSource).toContain("url: '/og.png'");
     expect(layoutSource).toContain("images: ['/og.png']");
     expect(layoutSource).toContain('Shareen Song — AI Product Manager');

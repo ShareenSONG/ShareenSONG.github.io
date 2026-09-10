@@ -156,22 +156,31 @@ class PhaseOneDesignBlueprintTest(unittest.TestCase):
     def test_direction_document_has_required_sections_and_clean_lines(self):
         text = DIRECTION_PATH.read_text(encoding="utf-8")
         for heading in [
-            "## 2. 两个参考站分别提供什么",
-            "## 3. 专属视觉概念",
-            "## 4. 色彩、字体与材质",
-            "## 5. 背景与影像系统",
-            "## 6. 总体布局语法",
-            "## 7. 交互方式清单",
-            "## 8. 响应式与无障碍原则",
-            "## 9. 素材与内容准备",
-            "## 10. 第一阶段决策与下一步",
+            "## 2. PPT 的可核验视觉事实",
+            "## 3. 新的专属视觉概念",
+            "## 4. 色彩与光感",
+            "## 5. 形状系统",
+            "## 6. Hero 设计方向",
+            "## 7. 字体与排版",
+            "## 8. 页面节奏与组件语法",
+            "## 9. 动效、响应式与无障碍",
+            "## 10. 明确禁用项",
+            "## 11. 第一阶段决策与下一步",
         ]:
             with self.subTest(heading=heading):
                 self.assertIn(heading, text)
 
-        self.assertIn("YSL 提供视觉气质，Youdoo 提供交互骨架", text)
-        self.assertIn("`#050505`", text)
-        self.assertIn("鼠标跟随", text)
+        self.assertIn("SOFT IRIDESCENT EDITORIAL", text)
+        self.assertIn("`#F4F4F4`", text)
+        self.assertIn("`#3B2561`", text)
+        self.assertIn("连续曲线", text)
+        self.assertIn("禁止使用 `clip-path: polygon(...)`", text)
+        self.assertIn("本轮不修改网站", text)
+        self.assertNotIn("黑色约占 70%", text)
+
+        for asset in ["02.png", "03.png", "04.png", "05.png", "06.png"]:
+            with self.subTest(asset=asset):
+                self.assertIn(asset, text)
 
         violations = [
             number

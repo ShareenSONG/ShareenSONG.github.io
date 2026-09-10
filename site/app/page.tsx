@@ -8,6 +8,16 @@ export default function Home() {
     <main id="main-content">
       <section className="identity-hero" id="top" aria-labelledby="hero-title">
         <Image
+          className="hero-gradient-shape"
+          src="/images/iridescent-form.webp"
+          alt=""
+          width={1734}
+          height={977}
+          sizes="(max-width: 760px) 118vw, 72vw"
+          priority
+          aria-hidden="true"
+        />
+        <Image
           className="hero-image"
           src="/images/shareen-portrait.jpg"
           alt="Shareen Song standing in soft daylight"
@@ -16,6 +26,7 @@ export default function Home() {
           priority
         />
         <div className="hero-shade" aria-hidden="true" />
+        <div className="hero-corner-mark" aria-hidden="true" />
         <div className="hero-topline label-row">
           <span>SHAREEN SONG</span>
           <span>AI / PRODUCT / GROWTH</span>

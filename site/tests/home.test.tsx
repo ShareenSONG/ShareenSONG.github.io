@@ -34,13 +34,27 @@ describe('portfolio home page', () => {
     ]);
   });
 
-  it('keeps the black editorial palette and accessible motion fallback', () => {
+  it('balances the black editorial system with the iridescent presentation palette', () => {
     expect(stylesheet).toContain('--black: #050505');
     expect(stylesheet).toContain('--ivory: #f3f0e9');
-    expect(stylesheet).toContain('--oxblood: #5a1018');
+    expect(stylesheet).toContain('--ultraviolet: #7136ff');
+    expect(stylesheet).toContain('--aqua: #7cf8ee');
+    expect(stylesheet).toContain('--acid-mint: #b9ff6a');
+    expect(stylesheet).toContain('.hero-gradient-shape');
+    expect(stylesheet).toContain('.selected-work { padding-bottom: 96px; border-top: 1px solid rgba(5, 5, 5, 0.18); background: var(--cloud);');
+    expect(stylesheet).toContain('.insight-section { min-height: 90svh; background: linear-gradient');
     expect(stylesheet).toContain('@media (prefers-reduced-motion: reduce)');
     expect(chromeSource).toContain("window.matchMedia('(pointer: fine)')");
+    expect(stylesheet).not.toContain('--oxblood');
     expect(stylesheet).not.toContain('#ffdf00');
+  });
+
+  it('renders the supplied iridescent form as decorative hero artwork', () => {
+    const { container } = render(<Home />);
+    const artwork = container.querySelector('img.hero-gradient-shape');
+    expect(decodeURIComponent(artwork?.getAttribute('src') ?? '')).toContain('/images/iridescent-form.webp');
+    expect(artwork).toHaveAttribute('alt', '');
+    expect(artwork).toHaveAttribute('aria-hidden', 'true');
   });
 
   it('provides a color-safe A4 print layout for PDF export', () => {

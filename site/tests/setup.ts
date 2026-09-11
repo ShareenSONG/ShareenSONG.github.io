@@ -22,4 +22,8 @@ vi.stubGlobal('cancelAnimationFrame', vi.fn());
 afterEach(() => {
   cleanup();
   document.documentElement.classList.remove('has-custom-cursor');
+  document.documentElement.classList.remove('menu-open');
+  document.documentElement.lang = 'zh-CN';
+  document.documentElement.dataset.language = 'zh-CN';
+  window.localStorage.clear();
 });

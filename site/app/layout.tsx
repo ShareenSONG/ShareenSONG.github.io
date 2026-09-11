@@ -7,25 +7,25 @@ const siteOrigin = process.env.NEXT_PUBLIC_SITE_ORIGIN ?? 'https://shareensong.g
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
   title: {
-    default: 'Shareen Song — AI Product Manager',
-    template: '%s — Shareen Song',
+    default: '宋艾欣 — AI 产品经理',
+    template: '%s — 宋艾欣',
   },
-  description: 'Portfolio of Shareen Song, an AI product manager turning complex AI capabilities into bounded, verifiable, and deliverable product systems.',
+  description: '宋艾欣的个人作品集：AI 产品、产品判断、增长实践与真实项目案例。',
   openGraph: {
-    title: 'Shareen Song — AI Product Manager',
-    description: 'AI, product judgment, and human behavior—turned into products that can be understood, tested, and delivered.',
+    title: '宋艾欣 — AI 产品经理',
+    description: '探索 AI、产品与人类行为如何交汇。',
     type: 'website',
     images: [{
       url: '/og.png',
       width: 1200,
       height: 630,
-      alt: 'Shareen Song — AI Product Manager',
+      alt: '宋艾欣 — AI 产品经理',
     }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shareen Song — AI Product Manager',
-    description: 'AI, product judgment, and human behavior—turned into products that can be understood, tested, and delivered.',
+    title: '宋艾欣 — AI 产品经理',
+    description: '探索 AI、产品与人类行为如何交汇。',
     images: ['/og.png'],
   },
 };
@@ -36,7 +36,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="zh-CN" data-language="zh-CN" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var l='zh-CN';try{if(localStorage.getItem('shareen-language')==='en')l='en'}catch(e){}document.documentElement.lang=l;document.documentElement.dataset.language=l})();` }} />
+      </head>
       <body><SiteChrome>{children}</SiteChrome></body>
     </html>
   );

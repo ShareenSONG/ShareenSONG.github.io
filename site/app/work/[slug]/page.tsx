@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import ProjectArtwork from '../../components/ProjectArtwork';
+import { Copy, Localized } from '../../components/Localized';
 import { projects } from '../../content';
 
 type ProjectPageProps = { params: Promise<{ slug: string }> };
@@ -16,10 +17,10 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   if (!project) return {};
 
   return {
-    title: project.title,
-    description: project.summary,
-    openGraph: { title: project.title, description: project.summary, images: [] },
-    twitter: { title: project.title, description: project.summary, images: [] },
+    title: project.title.zh,
+    description: project.summary.zh,
+    openGraph: { title: project.title.zh, description: project.summary.zh, images: [] },
+    twitter: { title: project.title.zh, description: project.summary.zh, images: [] },
   };
 }
 
@@ -32,87 +33,87 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const nextProject = projects[(projectIndex + 1) % projects.length];
 
   return (
-    <main id="main-content" className="inner-page case-page">
+    <main id="main-content" className="inner-page case-page" data-title-zh={`${project.title.zh} — 宋艾欣`} data-title-en={`${project.title.en} — Shareen Song`} data-description-zh={project.summary.zh} data-description-en={project.summary.en}>
       <header className="case-hero">
-        <div className="case-hero-top"><span>CASE {project.number}</span><span>{project.status}</span><span>{project.year}</span></div>
-        <h1>{project.title}</h1>
-        <p>{project.subtitle}</p>
+        <div className="case-hero-top"><span><Localized zh={`案例 ${project.number}`} en={`CASE ${project.number}`} /></span><span><Copy value={project.status} /></span><span>{project.year}</span></div>
+        <h1><Copy value={project.title} /></h1>
+        <p><Copy value={project.subtitle} /></p>
         <ProjectArtwork project={project} />
         <dl className="case-facts">
-          <div><dt>ROLE</dt><dd>{project.role}</dd></div>
-          <div><dt>TIMELINE</dt><dd>{project.timeline}</dd></div>
-          <div><dt>TEAM</dt><dd>{project.team}</dd></div>
-          <div><dt>PLATFORM</dt><dd>{project.platform}</dd></div>
+          <div><dt><Localized zh="我的角色" en="ROLE" /></dt><dd><Copy value={project.role} /></dd></div>
+          <div><dt><Localized zh="时间" en="TIMELINE" /></dt><dd><Copy value={project.timeline} /></dd></div>
+          <div><dt><Localized zh="团队" en="TEAM" /></dt><dd><Copy value={project.team} /></dd></div>
+          <div><dt><Localized zh="平台" en="PLATFORM" /></dt><dd><Copy value={project.platform} /></dd></div>
         </dl>
       </header>
 
       <section className="case-reading-section" aria-labelledby="context-title">
-        <div className="case-section-label"><span>01</span><span>CONTEXT</span></div>
-        <div className="case-reading-copy"><h2 id="context-title">Why did this<br /><em>project exist?</em></h2><p>{project.context}</p></div>
+        <div className="case-section-label"><span>01</span><span><Localized zh="背景" en="CONTEXT" /></span></div>
+        <div className="case-reading-copy"><h2 id="context-title"><Localized zh={<>为什么会有<br /><em>这个项目？</em></>} en={<>Why did this<br /><em>project exist?</em></>} /></h2><p><Copy value={project.context} /></p></div>
       </section>
 
       <section className="case-reading-section light-section" aria-labelledby="problem-title">
-        <div className="case-section-label"><span>02</span><span>PROBLEM</span></div>
-        <div className="case-reading-copy"><h2 id="problem-title">The real problem.</h2><p className="case-large-copy">{project.problem}</p></div>
+        <div className="case-section-label"><span>02</span><span><Localized zh="问题" en="PROBLEM" /></span></div>
+        <div className="case-reading-copy"><h2 id="problem-title"><Localized zh="真正的问题。" en="The real problem." /></h2><p className="case-large-copy"><Copy value={project.problem} /></p></div>
       </section>
 
       <section className="case-reading-section" aria-labelledby="research-title">
-        <div className="case-section-label"><span>03</span><span>RESEARCH</span></div>
+        <div className="case-section-label"><span>03</span><span><Localized zh="研究" en="RESEARCH" /></span></div>
         <div className="case-reading-copy">
-          <h2 id="research-title">Evidence before<br /><em>direction.</em></h2>
+          <h2 id="research-title"><Localized zh={<>先看证据，<br /><em>再定方向。</em></>} en={<>Evidence before<br /><em>direction.</em></>} /></h2>
           <ol className="case-list">
-            {project.research.map((item, index) => <li key={item}><span>0{index + 1}</span><p>{item}</p></li>)}
+            {project.research.map((item, index) => <li key={item.en}><span>0{index + 1}</span><p><Copy value={item} /></p></li>)}
           </ol>
         </div>
       </section>
 
       <section className="insight-section" aria-labelledby="insight-title">
-        <div className="case-section-label"><span>04</span><span>INSIGHT</span></div>
-        <blockquote id="insight-title">“{project.insight}”</blockquote>
-        <p>RESEARCH ≠ INSIGHT</p>
+        <div className="case-section-label"><span>04</span><span><Localized zh="洞察" en="INSIGHT" /></span></div>
+        <blockquote id="insight-title">“<Copy value={project.insight} />”</blockquote>
+        <p><Localized zh="研究 ≠ 洞察" en="RESEARCH ≠ INSIGHT" /></p>
       </section>
 
       <section className="decision-section light-section" aria-labelledby="decision-title">
-        <div className="case-section-label"><span>05</span><span>PRODUCT DECISION</span></div>
+        <div className="case-section-label"><span>05</span><span><Localized zh="产品决策" en="PRODUCT DECISION" /></span></div>
         <div>
-          <p>THEREFORE, WE DECIDED TO…</p>
-          <h2 id="decision-title">{project.decision}</h2>
+          <p><Localized zh="因此，我选择……" en="THEREFORE, WE DECIDED TO…" /></p>
+          <h2 id="decision-title"><Copy value={project.decision} /></h2>
         </div>
       </section>
 
       <section className="case-reading-section" aria-labelledby="solution-title">
-        <div className="case-section-label"><span>06</span><span>SOLUTION</span></div>
+        <div className="case-section-label"><span>06</span><span><Localized zh="解决方案" en="SOLUTION" /></span></div>
         <div className="case-reading-copy">
-          <h2 id="solution-title">From judgment<br /><em>to a system.</em></h2>
+          <h2 id="solution-title"><Localized zh={<>从判断，<br /><em>到系统。</em></>} en={<>From judgment<br /><em>to a system.</em></>} /></h2>
           <ol className="case-list case-list--solution">
-            {project.solution.map((item, index) => <li key={item}><span>0{index + 1}</span><p>{item}</p></li>)}
+            {project.solution.map((item, index) => <li key={item.en}><span>0{index + 1}</span><p><Copy value={item} /></p></li>)}
           </ol>
         </div>
       </section>
 
       <section className="role-outcome light-section" aria-labelledby="role-title">
         <div className="role-column">
-          <div className="case-section-label"><span>07</span><span>MY ROLE</span></div>
-          <h2 id="role-title">What I was<br /><em>responsible for.</em></h2>
-          <ul>{project.responsibilities.map((item) => <li key={item}>{item}</li>)}</ul>
+          <div className="case-section-label"><span>07</span><span><Localized zh="我的角色" en="MY ROLE" /></span></div>
+          <h2 id="role-title"><Localized zh={<>我具体<br /><em>负责什么。</em></>} en={<>What I was<br /><em>responsible for.</em></>} /></h2>
+          <ul>{project.responsibilities.map((item) => <li key={item.en}><Copy value={item} /></li>)}</ul>
         </div>
         <div className="outcome-column">
-          <div className="case-section-label"><span>08</span><span>OUTCOME</span></div>
+          <div className="case-section-label"><span>08</span><span><Localized zh="成果" en="OUTCOME" /></span></div>
           <div className="outcome-grid">
-            {project.outcomes.map((item) => <div key={item.label}><strong>{item.value}</strong><span>{item.label}</span></div>)}
+            {project.outcomes.map((item) => <div key={item.label.en}><strong>{item.value}</strong><span><Copy value={item.label} /></span></div>)}
           </div>
-          <aside><span>CLAIM BOUNDARY</span><p>{project.boundary}</p></aside>
+          <aside><span><Localized zh="成果口径与边界" en="CLAIM BOUNDARY" /></span><p><Copy value={project.boundary} /></p></aside>
         </div>
       </section>
 
       <section className="reflection-section" aria-labelledby="reflection-title">
-        <div className="case-section-label"><span>09</span><span>REFLECTION</span></div>
-        <div><p>IF I DID IT AGAIN…</p><h2 id="reflection-title">{project.reflection}</h2></div>
+        <div className="case-section-label"><span>09</span><span><Localized zh="反思" en="REFLECTION" /></span></div>
+        <div><p><Localized zh="如果再做一次……" en="IF I DID IT AGAIN…" /></p><h2 id="reflection-title"><Copy value={project.reflection} /></h2></div>
       </section>
 
-      <nav className="next-case" aria-label="Next case study">
-        <span>NEXT CASE / {nextProject.number}</span>
-        <Link href={`/work/${nextProject.slug}`} data-cursor="NEXT"><strong>{nextProject.title}</strong><i>→</i></Link>
+      <nav className="next-case" aria-label="下一个案例 / Next case study">
+        <span><Localized zh={`下一个案例 / ${nextProject.number}`} en={`NEXT CASE / ${nextProject.number}`} /></span>
+        <Link href={`/work/${nextProject.slug}`} data-cursor="NEXT"><strong><Copy value={nextProject.title} /></strong><i>→</i></Link>
       </nav>
     </main>
   );

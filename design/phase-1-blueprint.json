@@ -1,546 +1,110 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "phase": 1,
-  "status": "visual_direction_revised",
-  "updated_at": "2026-09-03",
-  "style_name": "BLACK / MOTION / EDITORIAL",
+  "status": "implementation_ready",
+  "updated_at": "2026-09-11",
+  "style_name": "SOFT IRIDESCENT EDITORIAL",
   "scope": {
-    "goal": "为宋艾欣建立以黑色为主体、融合 YSL 视觉气质与 Youdoo 交互语法的 AI 产品经理个人网站方向。",
-    "deliverable": "双参考站分析、融合原则、视觉系统、布局语法、交互清单、响应式边界和素材计划。",
-    "not_in_scope": [
-      "逐板块高保真视觉稿",
-      "初始化前端项目",
-      "编写页面或组件",
-      "下载或复制参考站素材",
-      "确定全部公开文案",
-      "部署网站"
-    ]
+    "goal": "以明亮留白、现代无衬线排版与柔光虹彩建立宋艾欣的中英双语个人作品集。",
+    "deliverable": "首页、项目、案例详情、思考、生活、联系与中文优先的全站语言切换。",
+    "not_in_scope": ["后端", "数据库", "CMS", "登录", "评论", "站内博客", "实时机器翻译", "部署网站"]
   },
-  "brief_interpretation": {
-    "latest_user_direction": "主体颜色改为黑色；以 Youdoo 的视觉、交互和布局为基础，融合更贴近个人风格的 YSL 视觉气质。",
-    "attachment_note": "附件提示词包含 Youdoo 高精度复刻要求和黑色主标题描述，但未检索到独立的 YSL 设计章节；YSL 方向以本轮用户补充为准。",
-    "design_statement": "YSL 提供视觉气质，Youdoo 提供交互骨架，个人经历与证据提供全部内容语义。",
-    "blend_ratio": {
-      "visual_atmosphere": {"ysl_percent": 65, "youdoo_percent": 35},
-      "interaction_and_layout": {"youdoo_percent": 70, "ysl_percent": 30}
-    }
-  },
+  "visual_thesis": "在清晰、理性的编辑版式里，注入一层柔软而有生命力的虹彩。",
+  "visual_keywords": ["Soft", "Fluid", "Luminous", "Airy", "Editorial", "Intelligent", "Warm"],
   "source_interpretation": {
-    "reference_sites": [
-      {
-        "id": "youdoo",
-        "name": "Youdoo",
-        "url": "https://youdooplay.com/",
-        "pages_reviewed": [
-          "https://youdooplay.com/",
-          "https://youdooplay.com/News/",
-          "https://youdooplay.com/Support/",
-          "https://youdooplay.com/AboutUs/"
-        ],
-        "primary_role": "交互骨架与场景节奏",
-        "inherit": [
-          "鼠标响应和磁吸反馈",
-          "平滑滚动与固定叙事",
-          "100vh 场景节奏",
-          "径向与横向内容浏览",
-          "导航翻面与弹性变形"
-        ],
-        "discard": [
-          "黄色与紫色品牌配色",
-          "儿童、家庭、游戏和商品语义",
-          "大面积高圆角消费电子卡片",
-          "购买、客服与 App 下载功能"
-        ]
-      },
-      {
-        "id": "ysl",
-        "name": "Saint Laurent",
-        "url": "https://www.ysl.com/en-en",
-        "pages_reviewed": ["https://www.ysl.com/en-en"],
-        "primary_role": "视觉气质与编辑秩序",
-        "inherit": [
-          "黑白电影感与全幅媒体",
-          "透明通栏导航",
-          "微型大写标签",
-          "直角影像与双列编辑画廊",
-          "克制 Hover 与视口级场景切换"
-        ],
-        "discard": [
-          "品牌 Logo 和专用字标",
-          "商品、模特和广告素材",
-          "电商分类、账户、门店与服务功能",
-          "对全站滚动的强制接管"
-        ]
-      }
-    ],
-    "asset_policy": "不复制或发布参考站 Logo、字体文件、商品图、模特图、视频和营销文案；只研究比例、节奏和交互语法。"
-  },
-  "reference_observations": {
-    "measured_at": "2026-09-03",
-    "youdoo": {
-      "desktop_1440x900": {
-        "container_max_width_px": 1180,
-        "header": {
-          "width_px": 1180,
-          "height_px": 56,
-          "top_px": 24,
-          "border_radius_px": 999,
-          "position": "fixed"
-        },
-        "home_hero": {
-          "height_px": 900,
-          "title_size_px": 72,
-          "title_line_height_px": 72,
-          "subtitle_size_px": 32
-        },
-        "news_grid": {
-          "hero_size_px": [1180, 445],
-          "columns": 4,
-          "card_width_px": 285,
-          "gap_px": 14
-        },
-        "support_layout": {
-          "sidebar_width_px": 280,
-          "content_width_px": 885,
-          "card_radius_px": 16
-        },
-        "about_reading_width_px": 800
-      },
-      "mobile_390x844": {
-        "header_size_px": [360, 56],
-        "header_top_px": 24,
-        "hero_height_px": 844,
-        "hero_title_size_px": 40,
-        "hero_subtitle_size_px": 15,
-        "navigation": "logo plus circular hamburger"
-      },
-      "technology_and_motion": {
-        "libraries_observed": ["Lenis", "Swiper", "GSAP", "ScrollTrigger"],
-        "mouse_scripts_observed": ["mouse-cursor.js", "mouse-shake.js"],
-        "patterns_observed": [
-          "固定胶囊 Header",
-          "导航文字翻转 Hover",
-          "100vh 图片和视频",
-          "Sticky/Pinned 滚动章节",
-          "径向游戏轮盘",
-          "横向无缝图片带",
-          "轮播与淡入弹窗",
-          "按钮附近的圆点跟随和缩放反馈"
-        ],
-        "header_transition": "750ms cubic-bezier(0.25, 1.2, 0.5, 1)",
-        "nav_flip_transition": "480ms cubic-bezier(0.25, 1.2, 0.5, 1)"
-      }
-    },
-    "ysl": {
-      "desktop_1440x900": {
-        "header": {
-          "width_px": 1440,
-          "height_px": 80,
-          "position": "fixed",
-          "background": "transparent over media",
-          "navigation_size_px": 12,
-          "brand_position": "center"
-        },
-        "hero": {
-          "size_px": [1440, 900],
-          "height_unit": "100vh",
-          "media": "full-bleed image or muted video with object-fit cover",
-          "label_position": "center bottom"
-        },
-        "editorial_gallery": {
-          "background": "white",
-          "columns": 2,
-          "image_size_px": [534, 667],
-          "outer_left_px": 152,
-          "column_gap_px": 68
-        },
-        "typography": {
-          "family": "Helvetica_Reg, Helvetica, Arial, sans-serif",
-          "navigation_and_caption_size_px": 12,
-          "style": "uppercase, compact line-height, generous spatial separation"
-        },
-        "scene_behavior": "wheel input changes full-viewport image/video scenes while the document scroll position remains visually fixed",
-        "hover": "pointer cursor with restrained linear color transition",
-        "custom_cursor_observed": false
-      },
-      "mobile": {
-        "hero": "full-screen portrait media with center-bottom label and CTA",
-        "header": "centered brand mark with compact menu/search controls",
-        "layout": "single media column with reduced navigation density"
-      }
-    }
-  },
-  "brand_direction": {
-    "name_zh": "宋艾欣",
-    "name_en": "Shareen Song",
-    "role": "AI 产品经理",
-    "positioning": "把复杂 AI 能力，做成有边界、可验证、可交付的产品闭环。",
-    "personality": ["清醒", "有行动力", "独立", "敏锐", "有温度", "可信"],
-    "visual_keywords": ["cinematic", "precise", "independent", "intelligent", "sensual", "human"],
-    "personalization": [
-      "用个人姓名与自有字标替换品牌 Logo",
-      "用真实项目影像与证据替换商品广告",
-      "用产品判断和贡献边界替换营销卖点",
-      "用社区、研学和长期兴趣补全人格",
-      "用联系合作替换购买行为"
-    ]
+    "primary_references": ["design/02.png", "design/03.png", "design/04.png", "design/05.png", "design/06.png"],
+    "role": "04.png 与 06.png 定义柔光网格；02.png、03.png 与 05.png 定义连续圆润的虹彩流体形。",
+    "asset_policy": "只使用自有、已授权或可公开素材。No Youdoo or YSL media is part of the website asset plan."
   },
   "design_tokens": {
     "color": {
-      "black_canvas": "#050505",
-      "charcoal": "#111111",
-      "deep_gray": "#181818",
-      "ivory": "#F3F0E9",
-      "white": "#FFFFFF",
-      "muted": "#9A9A95",
-      "line": "#2B2B2B",
-      "silver": "#C5C5BF",
-      "oxblood": "#5A1018"
+      "paper": "#F4F4F4",
+      "ink": "#242424",
+      "deep_violet": "#3B2561",
+      "white_light": "#FFFFFF",
+      "lilac_mist": "#D8D3FF",
+      "blush_cloud": "#F3C9D0",
+      "aqua_haze": "#C7F0EF",
+      "butter_light": "#FFF1AF",
+      "mint_glow": "#D8F8D1"
     },
     "typography": {
-      "display_stack": "Cormorant Garamond, Noto Serif SC, Songti SC, serif",
-      "ui_stack": "Helvetica Neue, Arial, Noto Sans SC, PingFang SC, sans-serif",
-      "desktop": {
-        "expressive_title": "clamp(56px, 10.5vw, 152px)/0.86/400",
-        "section_title": "clamp(44px, 6vw, 86px)/0.95/400",
-        "body_large": "20px/1.6/400",
-        "body": "16px/1.7/400",
-        "navigation": "12px/1/500; letter-spacing: 0.08em",
-        "label": "11px/1.1/500; letter-spacing: 0.12em"
-      },
-      "mobile": {
-        "expressive_title": "clamp(48px, 17vw, 72px)/0.9/400",
-        "section_title": "40px/1/400",
-        "body_large": "17px/1.6/400",
-        "body": "15px/1.7/400",
-        "label": "11px/1.1/500; letter-spacing: 0.1em"
-      }
+      "stack": "Helvetica Now, Geist, Helvetica Neue, Arial, Noto Sans SC, PingFang SC, sans-serif",
+      "hero_desktop": "clamp(72px, 9.2vw, 141px)/0.91/680",
+      "hero_mobile": "clamp(58px, 17vw, 82px)/0.9/680",
+      "section_title": "clamp(46px, 5.5vw, 78px)/1/680",
+      "body": "16px/1.75/400",
+      "label": "12px/1.4/500"
     },
     "layout": {
-      "desktop_content_width_px": 1180,
-      "reading_width_px": 800,
-      "tablet_gutter_px": 32,
+      "content_width_px": 1180,
+      "reading_width_px": 760,
+      "desktop_gutter_px": 32,
       "mobile_gutter_px": 16,
-      "hero_min_height": "100svh",
-      "expanded_header_height_px": 80,
-      "compact_header_height_px": 56,
-      "editorial_gallery_columns": 2,
-      "standard_section_padding": "clamp(96px, 12vw, 180px) 0"
+      "hero_min_height": "100svh"
     },
     "radius": {
-      "full_bleed_media_px": 0,
-      "editorial_image_px": 2,
-      "functional_card_px": 12,
-      "pill_px": 999
-    },
-    "surface": {
-      "grain_opacity": "1%–2% static only",
-      "shadow": "avoid decorative drop shadows; separate planes with luminance and overlays",
-      "media_overlay": "linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.62))"
+      "image_panel_px": 28,
+      "functional_pill_px": 999
     },
     "motion": {
-      "reveal": "600ms cubic-bezier(0.22, 1, 0.36, 1)",
-      "header_morph": "600–750ms cubic-bezier(0.25, 1, 0.5, 1)",
-      "nav_flip": "480ms cubic-bezier(0.25, 1, 0.5, 1)",
-      "media_hover": "240–360ms cubic-bezier(0.22, 1, 0.36, 1)",
-      "page_transition": "450–650ms",
-      "cursor_lerp": "0.14–0.20",
-      "reduced_motion": "disable smooth scrolling, magnetic cursor, pinning, parallax, auto-advance and mask-heavy transitions"
+      "reveal": "300–600ms fade and short rise",
+      "fluid_drift": "10–16s, 8–16px maximum",
+      "reduced_motion": "disable custom cursor, drift, parallax and looping scale"
     }
   },
   "background_system": [
-    {
-      "id": "black-cinema",
-      "share_percent": 70,
-      "background": "#050505",
-      "foreground": "#F3F0E9",
-      "use": "身份首屏、旗舰案例、联系收束",
-      "media": "black-and-white or low-saturation full-bleed portrait, project film or interface montage"
-    },
-    {
-      "id": "ivory-editorial",
-      "share_percent": 20,
-      "background": "#F3F0E9",
-      "foreground": "#050505",
-      "use": "方法、证据、长文和双列画廊",
-      "media": "sharp editorial crops, numbered artifacts and generous whitespace"
-    },
-    {
-      "id": "oxblood-focus",
-      "share_percent": 10,
-      "background": "#5A1018",
-      "foreground": "#F3F0E9",
-      "use": "局部编号、进度、鼠标状态和少量关键判断",
-      "media": "accent only; do not become a continuous full-page theme"
-    }
+    { "id": "paper-editorial", "share_percent": 74, "background": "#F4F4F4", "foreground": "#242424", "use": "所有正文、列表、案例阅读与主要导航" },
+    { "id": "iridescent-field", "share_percent": 18, "background": "soft mesh", "foreground": "#242424", "use": "Hero、索引页开场与局部转场" },
+    { "id": "deep-violet-anchor", "share_percent": 8, "background": "#3B2561", "foreground": "#FFFFFF", "use": "联系收束" }
   ],
+  "language_contract": {
+    "supported": ["zh-CN", "en"],
+    "default": "zh-CN",
+    "browser_detection": false,
+    "persistence": "localStorage with safe fallback to zh-CN",
+    "switch_behavior": "preserve route, project, hash and scroll position",
+    "coverage": ["navigation", "page content", "project cases", "thoughts", "life", "footer", "404", "image alt text", "accessibility labels", "title", "description"]
+  },
   "navigation": {
-    "brand_mark": "SHAREEN SONG / 宋艾欣",
-    "expanded_state": "80px transparent full-width layer over the opening media",
-    "compact_state": "56px black capsule after leaving the hero",
-    "desktop_items": [
-      {"label": "WORK", "href": "/work"},
-      {"label": "EXPERIENCE", "href": "/#experience"},
-      {"label": "NOTES", "href": "/notes"},
-      {"label": "ABOUT", "href": "/about"}
-    ],
-    "secondary_items": [
-      {"label": "RESUME", "href": "/resume"},
-      {"label": "CONTACT", "href": "/#contact"}
-    ],
-    "mobile_pattern": "centered name mark plus menu and compact action; opens a full-screen black navigation sheet"
+    "zh": ["宋艾欣", "项目", "经历", "思考", "关于我", "生活", "简历 ↗", "中 / EN"],
+    "en": ["Shareen", "Work", "Experience", "Thoughts", "About", "Life", "Resume ↗", "中 / EN"],
+    "mobile": "紧凑顶部导航，语言切换始终可见，菜单按钮打开全屏深紫导航层；Escape 可关闭。"
   },
   "page_map": [
-    {
-      "path": "/",
-      "name": "首页",
-      "purpose": "以一次沉浸体验建立人物气质，并让访问者迅速进入三个旗舰案例。",
-      "reference_pattern": "YSL 全屏媒体气质 + Youdoo 视口级滚动场景",
-      "sections": ["identity-hero", "selected-work-scenes", "case-index", "proof-editorial", "human-contact"]
-    },
-    {
-      "path": "/work",
-      "name": "项目",
-      "purpose": "在视觉浏览与快速筛选之间取得平衡，进入可验证的项目详情。",
-      "reference_pattern": "Youdoo 径向/横向浏览 + YSL 编辑画廊",
-      "sections": ["work-intro", "work-index", "work-archive"]
-    },
-    {
-      "path": "/work/[slug]",
-      "name": "案例详情",
-      "purpose": "呈现问题、角色、关键判断、过程、证据、结果与贡献边界。",
-      "reference_pattern": "电影式媒体开场 + 800px 编辑正文 + 横向产物轨道",
-      "sections": ["case-cinema", "case-decisions", "case-artifacts", "case-evidence", "case-reflection"]
-    },
-    {
-      "path": "/notes",
-      "name": "随笔",
-      "purpose": "承载 AI 产品、研究方法、研学与行业观察。",
-      "reference_pattern": "克制的编辑索引与大幅图像",
-      "sections": ["notes-intro", "notes-index"]
-    },
-    {
-      "path": "/about",
-      "name": "关于",
-      "purpose": "用长文、肖像、时间线与长期兴趣补全人格，而不是重复简历。",
-      "reference_pattern": "米白编辑长文 + 黑色人物影像",
-      "sections": ["about-portrait", "about-essay", "about-timeline", "about-beyond-work"]
-    }
-  ],
-  "high_level_site_flow": [
-    {
-      "id": "identity-hero",
-      "purpose": "建立姓名、岗位、核心表达与第一眼个人气质。",
-      "layout": "100svh 全幅黑色媒体，小号信息贴近底部，大标题只完成一次进入式揭示。",
-      "source_blend": "YSL full-screen campaign scene + Youdoo 100vh opening rhythm"
-    },
-    {
-      "id": "selected-work-scenes",
-      "purpose": "用三个 S 级案例证明产品判断、AI 构建和业务交付。",
-      "layout": "桌面为一组视口级固定叙事；移动端为自然纵向案例。",
-      "source_blend": "Youdoo pinned storytelling + YSL cinematic media transitions"
-    },
-    {
-      "id": "case-index",
-      "purpose": "让招聘者退出沉浸模式后快速浏览和跳转。",
-      "layout": "环形或横向可探索视图与普通列表并存。",
-      "source_blend": "Youdoo radial wheel/horizontal rail + YSL minimal captions"
-    },
-    {
-      "id": "proof-editorial",
-      "purpose": "用清晰的研究产物、证据状态和贡献边界建立可信度。",
-      "layout": "米白背景、双列竖幅图、细线与 800px 阅读栏。",
-      "source_blend": "YSL two-column editorial gallery + personal evidence system"
-    },
-    {
-      "id": "human-contact",
-      "purpose": "通过兴趣、社区与联系信息完成人格收束。",
-      "layout": "回到黑色，以人物影像、短句和极简联系入口结束。",
-      "source_blend": "YSL restrained ending + Youdoo direct action clarity"
-    }
-  ],
-  "interaction_inventory": [
-    {
-      "id": "cursor_follow",
-      "source": "Youdoo-inspired",
-      "behavior": "12px ivory dot plus 36px hairline ring with slight interpolated lag",
-      "context_states": ["default", "magnetic link", "VIEW on media", "left/right drag arrows"],
-      "desktop": true,
-      "touch_fallback": "do not render",
-      "reduced_motion": "use native cursor and static hover"
-    },
-    {
-      "id": "smooth_scroll",
-      "source": "Youdoo",
-      "behavior": "low-damping smooth scroll that preserves direction and settles quickly",
-      "desktop": true,
-      "touch_fallback": "native scrolling",
-      "reduced_motion": "native scrolling"
-    },
-    {
-      "id": "full_screen_scene_transition",
-      "source": "YSL + Youdoo",
-      "behavior": "wheel progress switches media, title, metadata and exposure inside one flagship sequence",
-      "desktop": true,
-      "touch_fallback": "natural stacked scenes",
-      "reduced_motion": "direct content replacement without pinning"
-    },
-    {
-      "id": "pinned_case_story",
-      "source": "Youdoo",
-      "behavior": "media remains pinned while short problem, decision and result statements advance",
-      "desktop": true,
-      "touch_fallback": "ordinary vertical case cards",
-      "reduced_motion": "ordinary vertical case cards"
-    },
-    {
-      "id": "radial_case_wheel",
-      "source": "Youdoo",
-      "behavior": "covers travel on a large radius; active project grows and exposes its index",
-      "desktop": true,
-      "touch_fallback": "horizontal snap rail plus list view",
-      "reduced_motion": "grid or list view"
-    },
-    {
-      "id": "horizontal_media_rail",
-      "source": "Youdoo",
-      "behavior": "drag or wheel through prototypes, artifacts and personal imagery",
-      "desktop": true,
-      "touch_fallback": "native horizontal swipe",
-      "reduced_motion": "manual controls without momentum animation"
-    },
-    {
-      "id": "nav_flip",
-      "source": "Youdoo",
-      "behavior": "navigation labels flip vertically in about 480ms",
-      "desktop": true,
-      "touch_fallback": "pressed state",
-      "reduced_motion": "color change only"
-    },
-    {
-      "id": "header_morph",
-      "source": "YSL + Youdoo",
-      "behavior": "80px transparent full-width header contracts into a 56px black floating capsule",
-      "desktop": true,
-      "touch_fallback": "compact fixed header",
-      "reduced_motion": "instant state change"
-    },
-    {
-      "id": "split_editorial_gallery",
-      "source": "YSL",
-      "behavior": "paired portrait media with small captions and generous negative space",
-      "desktop": true,
-      "touch_fallback": "single column media",
-      "reduced_motion": "static media"
-    },
-    {
-      "id": "media_hover_reveal",
-      "source": "YSL + personalized",
-      "behavior": "image scales 1.015–1.03, overlay lightens and title rises slightly",
-      "desktop": true,
-      "touch_fallback": "always-visible caption",
-      "reduced_motion": "contrast change only"
-    },
-    {
-      "id": "page_transition",
-      "source": "personalized editorial motion",
-      "behavior": "black curtain or title mask opens a case in 450–650ms",
-      "desktop": true,
-      "touch_fallback": "short fade",
-      "reduced_motion": "no transition"
-    },
-    {
-      "id": "video_control",
-      "source": "YSL",
-      "behavior": "muted looping video with visible play/pause, sound status and poster",
-      "desktop": true,
-      "touch_fallback": "tap control and poster-first loading",
-      "reduced_motion": "poster image until explicitly played"
-    }
+    { "path": "/", "name": "首页", "purpose": "快速说明身份、定位、经历、精选项目、思考、生活与联系。", "sections": ["identity-hero", "about", "experience", "selected-work", "thoughts", "life", "contact"] },
+    { "path": "/work", "name": "项目", "purpose": "呈现三个精选案例与其他实验索引。", "sections": ["work-intro", "work-index", "work-archive"] },
+    { "path": "/work/[slug]", "name": "案例详情", "purpose": "用统一九段结构解释项目判断、个人动作、成果与边界。", "sections": ["context", "problem", "research", "insight", "decision", "solution", "role", "outcome", "reflection"] },
+    { "path": "/thoughts", "name": "思考", "purpose": "外部文章与 GitHub 内容索引，不承载正文。", "sections": ["thoughts-intro", "thoughts-index"] },
+    { "path": "/life", "name": "生活", "purpose": "通过影像与短文字呈现旅行、社区、兴趣与个人趣事。", "sections": ["life-hero", "life-intro", "gallery", "interests", "facts"] },
+    { "path": "/shareen-song-resume.pdf", "name": "简历", "purpose": "打开或下载现有简历 PDF。", "sections": ["pdf"] },
+    { "path": "/#contact", "name": "联系", "purpose": "提供邮箱、GitHub 与简历入口。", "sections": ["contact"] }
   ],
   "experience_mapping": {
-    "flagship_ids": [
-      "fairland-competitor-agent",
-      "fairland-igarden",
-      "baike-ai-education"
-    ],
-    "flagship_presentation": {
-      "fairland-competitor-agent": "black-and-white evidence dashboard, graph lines and exception states",
-      "fairland-igarden": "cinematic product ecosystem media with controlled motion and spatial layers",
-      "baike-ai-education": "ivory editorial scene with oxblood annotations and delivery evidence"
-    },
-    "supporting_content": [
-      "research and validation artifacts",
-      "education and international exposure",
-      "community, mental-health, music, yoga and calligraphy"
-    ],
-    "evidence_rule": "Every public result must distinguish verified fact, team result, personal contribution, solution-stage claim and pending evidence."
+    "flagship_ids": ["fairland-competitor-agent", "fairland-igarden", "baike-ai-education"],
+    "evidence_rule": "每项公开结果区分事实、团队结果、个人贡献、方案阶段与待验证证据。"
   },
+  "interaction_inventory": [
+    { "id": "language_switch", "behavior": "右上角中英切换，保持当前位置与路由，保存有效偏好。", "touch_fallback": "移动端顶部直接可见", "reduced_motion": "无动画切换" },
+    { "id": "mobile_menu", "behavior": "全屏深紫菜单，Escape 关闭并暴露 aria-expanded。", "touch_fallback": "原生触控", "reduced_motion": "缩短过渡" },
+    { "id": "cursor_follow", "behavior": "只在精确指针且非 Reduced Motion 环境启用克制跟随。", "touch_fallback": "不渲染", "reduced_motion": "使用系统鼠标" },
+    { "id": "editorial_hover", "behavior": "轻微位移、亮度或缩放反馈。", "touch_fallback": "信息始终可见", "reduced_motion": "只改变颜色" }
+  ],
   "responsive_strategy": [
-    {
-      "range": ">=1440px",
-      "behavior": "1180px content grid, 100svh scenes, cursor follow, pinned cases and two-column editorial gallery"
-    },
-    {
-      "range": "1024–1439px",
-      "behavior": "32–48px gutters, shorter pinned distance, retain two-column gallery and horizontal rail"
-    },
-    {
-      "range": "768–1023px",
-      "behavior": "remove strong radial perspective, simplify header, convert cases to two-column or vertical layout"
-    },
-    {
-      "range": "375–767px",
-      "behavior": "16px gutters, single-column natural flow, no custom cursor, no wheel capture, full-screen navigation"
-    }
+    { "range": ">=1024px", "behavior": "1180px 内容网格、宽阔 Hero、双列项目与编辑式时间线。" },
+    { "range": "761–1023px", "behavior": "项目转单列，保留自然文档流与完整信息。" },
+    { "range": "<=760px", "behavior": "16px 边距，纵向柔光背景，单列内容，无滚轮捕获与自定义鼠标。" }
   ],
   "accessibility_and_performance": {
-    "pointer": "custom cursor only when pointer:fine; preserve native cursor for forms and reading contexts",
-    "keyboard": "all links, carousels, menus and media controls are keyboard reachable with visible focus",
-    "motion": "prefers-reduced-motion disables smooth scrolling, magnetism, pinning, parallax, auto-advance and mask-heavy transitions",
-    "scroll": "do not use site-wide scroll snap or make mouse interaction the only path to content",
-    "video": "autoplay video is muted, can be paused and has a poster; essential information is also text",
-    "contrast": "ivory text on black and black text on ivory are the default readable pairs",
-    "performance_budget": "poster-first media, responsive image sources, lazy-load content below the first viewport, reserve dimensions to prevent layout shift"
-  },
-  "asset_plan": {
-    "p0": [
-      "适合黑色背景的正面半身、侧面和环境肖像，长边至少 2400px",
-      "竞品 Agent 的脱敏 Dashboard、工作流、证据链和异常案例",
-      "iGarden 的研究框架、产品生态图、核心流程和控制 App 原型",
-      "AI 数字人教育的界面、部署或宣讲现场",
-      "三个旗舰项目各自的问题、关键判断、公开证据和个人贡献边界"
-    ],
-    "p1": [
-      "8–12 秒人物与项目蒙太奇及静态 Poster",
-      "VibeCoders、欧洲研学和校园或社区活动照片",
-      "古筝、瑜伽或书法的克制生活影像",
-      "SHAREEN SONG / 宋艾欣自有字标探索"
-    ],
-    "legal": "Only self-owned, licensed or clearly commercial-use assets may ship. No Youdoo or YSL media is part of the website asset plan."
+    "pointer": "custom cursor only when pointer:fine and motion is not reduced",
+    "keyboard": "all links, language controls and menus are keyboard reachable with visible focus",
+    "motion": "prefers-reduced-motion disables custom cursor and large or looping motion",
+    "scroll": "natural document flow with no wheel capture or forced scroll snap",
+    "contrast": "#242424 on #F4F4F4 is the default pair; text sits in quiet areas of mesh backgrounds",
+    "assets": "responsive source images with reserved dimensions and no unresolved placeholders"
   },
   "design_guardrails": {
-    "do": [
-      "让黑色承担主要空间，让米白章节提供呼吸",
-      "把动效绑定到信息层级、案例选择和证据推进",
-      "同时提供沉浸浏览与快速跳转路径",
-      "用项目真实产物建立个人辨识度"
-    ],
-    "avoid": [
-      "黄色主色或黄黑品牌组合",
-      "蓝紫 AI 渐变、霓虹和玻璃拟态",
-      "全站高圆角气泡卡片",
-      "持续漂浮、无限自动旋转和强制全站滚动捕获",
-      "模仿 Saint Laurent Logo 或直接复用参考站素材"
-    ]
-  },
-  "next_phase": {
-    "deliverables": [
-      "桌面首页低保真线框",
-      "移动端内容顺序图",
-      "P0 素材可公开性清单",
-      "三个旗舰案例的最小内容卡"
-    ],
-    "entry_condition": "确认总体风格方向后再细化页面板块、文案、组件和逐段动效参数。"
+    "do": ["保持至少 70% 明亮画布", "使用现代无衬线层级", "每屏只保留一个主视觉重点", "使用连续曲线与大圆弧", "用个人照片和真实项目判断承载内容"],
+    "avoid": ["黑色主背景", "clip-path polygon", "尖角、星芒、箭头与碎片", "玻璃拟态和密集卡片墙", "蓝紫霓虹与扫描线", "高对比衬线大标题", "深色蒙层覆盖柔光背景"]
   }
 }

@@ -34,32 +34,28 @@ class ProductSpecImplementationTest(unittest.TestCase):
             with self.subTest(path=path.name):
                 self.assertTrue(path.is_file(), f"Missing MVP artifact: {path}")
 
-    def test_language_requirements_have_scope_behavior_and_acceptance(self):
+    def test_chinese_only_requirements_have_scope_behavior_and_acceptance(self):
         spec = SPEC_PATH.read_text(encoding="utf-8")
-        requirements = spec.split("### 7.2 默认语言与内容范围", 1)[1].split("## 8.", 1)[0]
-        acceptance = spec.split("### 语言功能验收", 1)[1].split("### 通用验收", 1)[0]
+        requirements = spec.split("### 7.2 全中文内容范围", 1)[1].split("## 8.", 1)[0]
+        acceptance = spec.split("### 中文版本验收", 1)[1].split("### 通用验收", 1)[0]
         for requirement in [
-            "仅支持简体中文（`zh-CN`）和英文（`en`）",
-            "首次访问、无有效语言偏好时默认中文",
-            "不根据浏览器或系统语言自动切换英文",
+            "站点仅提供简体中文（`zh-CN`）版本",
+            "不提供英文切换",
+            "不读取或保存语言偏好",
             "仅必要的英文单词保留原文",
-            "所有页面右上角显示 `中 / EN`",
-            "无需先打开菜单",
-            "保持当前页面、项目与锚点",
-            "语言选择保存在当前浏览器本地",
-            "浏览器本地存储不可用时",
-            "控件支持键盘操作",
+            "历史遗留的英文语言偏好不得影响页面",
+            "任意子页面都显示中文",
         ]:
             with self.subTest(requirement=requirement):
                 self.assertIn(requirement, requirements)
         for scenario in [
-            "浏览器语言为英文", "没有遗留英文", "桌面与手机",
-            "项目详情或带锚点", "再次访问", "记录无效", "本地存储不可用",
-            "键盘切换", "PDF 保持原文件语言",
+            "浏览器语言为英文", "旧的英文偏好", "没有遗留英文",
+            "桌面导航保持单行", "不显示语言切换", "移动端菜单可操作",
+            "PDF 保持原文件语言",
         ]:
             with self.subTest(scenario=scenario):
                 self.assertIn(scenario, acceptance)
-        self.assertIn("默认中文与全站中英切换需求已确认，待页面实现", spec)
+        self.assertIn("全中文站点与单行精简导航", spec)
 
     def test_visual_direction_reference_resolves_and_replaces_old_guidance(self):
         spec = SPEC_PATH.read_text(encoding="utf-8")

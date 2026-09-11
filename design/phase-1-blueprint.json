@@ -5,8 +5,8 @@
   "updated_at": "2026-09-11",
   "style_name": "SOFT IRIDESCENT EDITORIAL",
   "scope": {
-    "goal": "以明亮留白、现代无衬线排版与柔光虹彩建立宋艾欣的中英双语个人作品集。",
-    "deliverable": "首页、项目、案例详情、思考、生活、联系与中文优先的全站语言切换。",
+    "goal": "以明亮留白、现代无衬线排版与柔光虹彩建立宋艾欣的全中文个人作品集。",
+    "deliverable": "首页、项目、案例详情、思考、生活、联系与单行精简导航。",
     "not_in_scope": ["后端", "数据库", "CMS", "登录", "评论", "站内博客", "实时机器翻译", "部署网站"]
   },
   "visual_thesis": "在清晰、理性的编辑版式里，注入一层柔软而有生命力的虹彩。",
@@ -59,17 +59,17 @@
     { "id": "deep-violet-anchor", "share_percent": 8, "background": "#3B2561", "foreground": "#FFFFFF", "use": "联系收束" }
   ],
   "language_contract": {
-    "supported": ["zh-CN", "en"],
+    "supported": ["zh-CN"],
     "default": "zh-CN",
     "browser_detection": false,
-    "persistence": "localStorage with safe fallback to zh-CN",
-    "switch_behavior": "preserve route, project, hash and scroll position",
+    "persistence": "none; ignore legacy language preferences",
+    "switch_behavior": "not applicable; Chinese-only site",
     "coverage": ["navigation", "page content", "project cases", "thoughts", "life", "footer", "404", "image alt text", "accessibility labels", "title", "description"]
   },
   "navigation": {
-    "zh": ["宋艾欣", "项目", "经历", "思考", "关于我", "生活", "简历 ↗", "中 / EN"],
-    "en": ["Shareen", "Work", "Experience", "Thoughts", "About", "Life", "Resume ↗", "中 / EN"],
-    "mobile": "紧凑顶部导航，语言切换始终可见，菜单按钮打开全屏深紫导航层；Escape 可关闭。"
+    "zh": ["宋艾欣", "项目", "经历", "思考", "生活", "简历 ↗"],
+    "desktop": "品牌与导航入口保持在同一行，不重复职业定位。",
+    "mobile": "紧凑顶部导航，菜单按钮打开全屏深紫导航层；Escape 可关闭。"
   },
   "page_map": [
     { "path": "/", "name": "首页", "purpose": "快速说明身份、定位、经历、精选项目、思考、生活与联系。", "sections": ["identity-hero", "about", "experience", "selected-work", "thoughts", "life", "contact"] },
@@ -85,7 +85,6 @@
     "evidence_rule": "每项公开结果区分事实、团队结果、个人贡献、方案阶段与待验证证据。"
   },
   "interaction_inventory": [
-    { "id": "language_switch", "behavior": "右上角中英切换，保持当前位置与路由，保存有效偏好。", "touch_fallback": "移动端顶部直接可见", "reduced_motion": "无动画切换" },
     { "id": "mobile_menu", "behavior": "全屏深紫菜单，Escape 关闭并暴露 aria-expanded。", "touch_fallback": "原生触控", "reduced_motion": "缩短过渡" },
     { "id": "cursor_follow", "behavior": "只在精确指针且非 Reduced Motion 环境启用克制跟随。", "touch_fallback": "不渲染", "reduced_motion": "使用系统鼠标" },
     { "id": "editorial_hover", "behavior": "轻微位移、亮度或缩放反馈。", "touch_fallback": "信息始终可见", "reduced_motion": "只改变颜色" }

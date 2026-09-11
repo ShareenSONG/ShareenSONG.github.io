@@ -7,16 +7,14 @@ export default function ProjectArtwork({ project, compact = false }: { project: 
       className={`project-art project-art--${project.tone} ${compact ? 'project-art--compact' : ''}`}
       role="img"
       aria-label={`项目视觉：${project.title.zh}`}
-      data-label-zh={`项目视觉：${project.title.zh}`}
-      data-label-en={`Project visual: ${project.title.en}`}
-      data-cursor="VIEW"
+      data-cursor="查看"
     >
       <span className="project-art-number" aria-hidden="true">{project.number}</span>
       {project.tone === 'garden' && (
-        <div className="garden-art" aria-hidden="true"><i /><i /><i /><b>PLAY</b></div>
+        <div className="garden-art" aria-hidden="true"><i /><i /><i /><b>玩</b></div>
       )}
       {project.tone === 'signal' && (
-        <div className="signal-art" aria-hidden="true"><i /><i /><i /><i /><b>DIFF</b></div>
+        <div className="signal-art" aria-hidden="true"><i /><i /><i /><i /><b>差异</b></div>
       )}
       {project.tone === 'human' && (
         <div className="human-art" aria-hidden="true"><i /><i /><i /><b>AI</b></div>

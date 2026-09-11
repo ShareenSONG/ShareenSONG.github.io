@@ -9,14 +9,14 @@ export const metadata: Metadata = {
 
 export default function ThoughtsPage() {
   return (
-    <main id="main-content" className="inner-page thoughts-page" data-title-zh="思考 — 宋艾欣" data-title-en="Thoughts — Shareen Song" data-description-zh="宋艾欣的外部文章、构建笔记与产品问题索引。" data-description-en="An external index of Shareen Song's writing, build notes, and product questions.">
+    <main id="main-content" className="inner-page thoughts-page">
       <header className="page-hero page-hero--thoughts">
         <div className="page-hero-meta"><span><Localized zh="思考" en="THOUGHTS" /></span><span><Localized zh="外部索引" en="EXTERNAL INDEX" /></span></div>
         <h1><Localized zh={<>想法始终<br /><em>在流动。</em></>} en={<>Ideas live<br /><em>in motion.</em></>} /></h1>
         <p><Localized zh="长文会发布在 GitHub 或外部内容平台。这里刻意保持轻量，只记录我正在构建、追问与学习的方向。" en="Long-form articles will live on GitHub or an external publishing platform. This page stays deliberately light: a map of what I am building, questioning, and learning." /></p>
       </header>
 
-      <section className="thoughts-index" aria-label="Thoughts and external writing">
+      <section className="thoughts-index" aria-label="思考与外部文章">
         {thoughtTopics.map((thought, index) => {
           const content = (
             <>
@@ -27,7 +27,7 @@ export default function ThoughtsPage() {
             </>
           );
           return thought.href ? (
-            <a className="thought-index-row" href={thought.href} target="_blank" rel="noreferrer" data-cursor="READ" key={thought.title.en}>{content}</a>
+            <a className="thought-index-row" href={thought.href} target="_blank" rel="noreferrer" data-cursor="阅读" key={thought.title.en}>{content}</a>
           ) : (
             <article className="thought-index-row thought-index-row--draft" key={thought.title.en}>{content}</article>
           );

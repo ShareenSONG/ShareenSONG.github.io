@@ -36,10 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN" data-language="zh-CN" suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: `(function(){var l='zh-CN';try{if(localStorage.getItem('shareen-language')==='en')l='en'}catch(e){}document.documentElement.lang=l;document.documentElement.dataset.language=l})();` }} />
-      </head>
+    <html lang="zh-CN">
       <body><SiteChrome>{children}</SiteChrome></body>
     </html>
   );

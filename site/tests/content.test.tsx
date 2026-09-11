@@ -23,15 +23,14 @@ describe('portfolio content contract', () => {
       { value: '200+', label: { zh: '内部用户', en: 'INTERNAL USERS' } },
       { value: 'SQLite', label: { zh: '真实业务数据写入', en: 'REAL BUSINESS DATA WRITES' } },
     ]));
-    expect(agent?.boundary.en).toMatch(/DingTalk.*self-reported/i);
     expect(agent?.boundary.zh).toMatch(/自报结果/);
-    expect(garden?.research.map((item) => item.en).join(' ')).toMatch(/contacted 114 game studios and Steam developers/i);
-    expect(garden?.boundary.en).toMatch(/not be described as launched/i);
+    expect(garden?.research.map((item) => item.zh).join(' ')).toMatch(/联系 114 家游戏工作室与 Steam 开发者/);
+    expect(garden?.boundary.zh).toMatch(/不应描述为已经上线/);
     expect(education?.outcomes).toEqual(expect.arrayContaining([
       { value: '5', label: { zh: '高校完成产品部署', en: 'UNIVERSITIES WITH PRODUCT DEPLOYMENT' } },
       { value: '15', label: { zh: '高校方案覆盖', en: 'UNIVERSITIES COVERED BY SOLUTIONS' } },
     ]));
-    expect(education?.boundary.en).toMatch(/team project collection/i);
+    expect(education?.boundary.zh).toMatch(/团队累计项目回款/);
   });
 
   it('keeps unpublished thoughts as drafts without fabricated links', () => {
@@ -45,12 +44,12 @@ describe('project detail template', () => {
     const page = await ProjectPage({ params: Promise.resolve({ slug: 'competitive-intelligence-agent' }) });
     render(page);
 
-    expect(screen.getByRole('heading', { level: 1, name: /competitive intelligence agent/i })).toBeInTheDocument();
-    for (const name of [/why did this project exist/i, /the real problem/i, /evidence before direction/i, /from judgment to a system/i, /what i was responsible for/i]) {
+    expect(screen.getByRole('heading', { level: 1, name: /竞品监控 Agent/i })).toBeInTheDocument();
+    for (const name of [/为什么会有.*这个项目/i, /真正的问题/i, /先看证据.*再定方向/i, /从判断.*到系统/i, /我具体.*负责什么/i]) {
       expect(screen.getByRole('heading', { name })).toBeInTheDocument();
     }
-    expect(screen.getByText(/research ≠ insight/i)).toBeInTheDocument();
-    expect(screen.getByText(/claim boundary/i)).toBeInTheDocument();
+    expect(screen.getByText(/研究 ≠ 洞察/i)).toBeInTheDocument();
+    expect(screen.getByText(/成果口径与边界/i)).toBeInTheDocument();
     expect(screen.getByText('200+')).toBeInTheDocument();
   });
 

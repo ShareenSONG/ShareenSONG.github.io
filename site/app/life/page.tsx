@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 export default function LifePage() {
   return (
-    <main id="main-content" className="inner-page life-page" data-title-zh="生活 — 宋艾欣" data-title-en="Life — Shareen Song" data-description-zh="宋艾欣的旅行、社区、兴趣与产品工作之外的生活。" data-description-en="Travel, community, interests, and the life behind Shareen Song's product work.">
+    <main id="main-content" className="inner-page life-page">
       <header className="life-hero">
-        <Image src="/images/harbour-sunset.jpg" alt="宋艾欣在维多利亚港日落时分" data-alt-zh="宋艾欣在维多利亚港日落时分" data-alt-en="Shareen by Victoria Harbour at sunset" fill sizes="100vw" priority />
+        <Image src="/images/harbour-sunset.jpg" alt="宋艾欣在维多利亚港日落时分" fill sizes="100vw" priority />
         <div className="life-hero-shade" aria-hidden="true" />
         <div className="page-hero-meta"><span><Localized zh="生活 / 个人" en="LIFE / PERSONAL" /></span><span><Localized zh="工作之外" en="BEYOND WORK" /></span></div>
         <h1><Localized zh={<>下班以后，<br /><em>仍然好奇。</em></>} en={<>Still curious<br /><em>after hours.</em></>} /></h1>
@@ -27,11 +27,11 @@ export default function LifePage() {
         </div>
       </section>
 
-      <section className="life-gallery" aria-label="Life and travel photographs">
+      <section className="life-gallery" aria-label="生活与旅行照片">
         {lifeImages.map((image, index) => (
           <figure className={`life-photo life-photo--${image.shape}`} key={image.src}>
-            <div data-cursor="VIEW">
-              <Image src={image.src} alt={image.alt.zh} data-alt-zh={image.alt.zh} data-alt-en={image.alt.en} fill sizes={image.shape === 'wide' ? '(max-width: 720px) 100vw, 60vw' : '(max-width: 720px) 100vw, 38vw'} />
+            <div data-cursor="查看">
+              <Image src={image.src} alt={image.alt.zh} fill sizes={image.shape === 'wide' ? '(max-width: 720px) 100vw, 60vw' : '(max-width: 720px) 100vw, 38vw'} />
             </div>
             <figcaption><span>0{index + 1}</span><span><Copy value={image.caption} /></span></figcaption>
           </figure>

@@ -33,7 +33,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const nextProject = projects[(projectIndex + 1) % projects.length];
 
   return (
-    <main id="main-content" className="inner-page case-page" data-title-zh={`${project.title.zh} — 宋艾欣`} data-title-en={`${project.title.en} — Shareen Song`} data-description-zh={project.summary.zh} data-description-en={project.summary.en}>
+    <main id="main-content" className="inner-page case-page">
       <header className="case-hero">
         <div className="case-hero-top"><span><Localized zh={`案例 ${project.number}`} en={`CASE ${project.number}`} /></span><span><Copy value={project.status} /></span><span>{project.year}</span></div>
         <h1><Copy value={project.title} /></h1>
@@ -111,9 +111,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div><p><Localized zh="如果再做一次……" en="IF I DID IT AGAIN…" /></p><h2 id="reflection-title"><Copy value={project.reflection} /></h2></div>
       </section>
 
-      <nav className="next-case" aria-label="下一个案例 / Next case study">
+      <nav className="next-case" aria-label="下一个案例">
         <span><Localized zh={`下一个案例 / ${nextProject.number}`} en={`NEXT CASE / ${nextProject.number}`} /></span>
-        <Link href={`/work/${nextProject.slug}`} data-cursor="NEXT"><strong><Copy value={nextProject.title} /></strong><i>→</i></Link>
+        <Link href={`/work/${nextProject.slug}`} data-cursor="下一个"><strong><Copy value={nextProject.title} /></strong><i>→</i></Link>
       </nav>
     </main>
   );

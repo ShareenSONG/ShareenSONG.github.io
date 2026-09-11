@@ -39,15 +39,19 @@ class PhaseOneDesignBlueprintTest(unittest.TestCase):
         for phrase in ["黑色主背景", "clip-path polygon", "尖角", "玻璃拟态", "高对比衬线"]:
             self.assertIn(phrase, avoid)
 
-    def test_language_contract_is_chinese_first_and_bilingual(self):
+    def test_language_contract_is_chinese_only(self):
         language = self.blueprint["language_contract"]
-        self.assertEqual(["zh-CN", "en"], language["supported"])
+        self.assertEqual(["zh-CN"], language["supported"])
         self.assertEqual("zh-CN", language["default"])
         self.assertFalse(language["browser_detection"])
-        self.assertIn("localStorage", language["persistence"])
-        self.assertIn("hash", language["switch_behavior"])
+        self.assertIn("ignore legacy", language["persistence"])
+        self.assertIn("Chinese-only", language["switch_behavior"])
         self.assertIn("404", language["coverage"])
         self.assertIn("image alt text", language["coverage"])
+
+        navigation = self.blueprint["navigation"]
+        self.assertEqual(["宋艾欣", "项目", "经历", "思考", "生活", "简历 ↗"], navigation["zh"])
+        self.assertNotIn("en", navigation)
 
     def test_page_map_covers_the_mvp_routes(self):
         pages = {page["path"]: page for page in self.blueprint["page_map"]}

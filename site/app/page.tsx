@@ -10,7 +10,6 @@ export default function Home() {
       <section className="identity-hero" id="top" aria-labelledby="hero-title">
         <div className="hero-mesh" aria-hidden="true" />
         <Image className="hero-image" src="/images/shareen-portrait.jpg" alt="宋艾欣在柔和日光下的肖像" fill sizes="(max-width: 760px) 55vw, 31vw" priority />
-        <div className="hero-topline label-row"><span>SHAREEN SONG</span><span><Localized zh="AI 产品 / 产品 / 增长" en="AI / PRODUCT / GROWTH" /></span><span><Localized zh="深圳 · 香港" en="SHENZHEN · HONG KONG" /></span></div>
         <div className="identity-copy">
           <p className="eyebrow"><Localized zh="AI 产品经理 · 构建者 · 研究者" en="AI Product Manager · Builder · Researcher" /></p>
           <h1 id="hero-title"><span>宋艾欣</span><em>Shareen Song.</em></h1>

@@ -30,8 +30,8 @@
     },
     "typography": {
       "stack": "Helvetica Now, Geist, Helvetica Neue, Arial, Noto Sans SC, PingFang SC, sans-serif",
-      "hero_desktop": "clamp(72px, 9.2vw, 141px)/0.91/680",
-      "hero_mobile": "clamp(58px, 17vw, 82px)/0.9/680",
+      "hero_desktop": "clamp(51px, 6.1vw, 93px)/0.94/680",
+      "hero_mobile": "clamp(46px, 13vw, 67px)/0.92/680",
       "section_title": "clamp(46px, 5.5vw, 78px)/1/680",
       "body": "16px/1.75/400",
       "label": "12px/1.4/500"

@@ -8,6 +8,7 @@ import SiteChrome from '../app/components/SiteChrome';
 const stylesheet = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8');
 const layoutSource = readFileSync(join(process.cwd(), 'app/layout.tsx'), 'utf8');
 const chromeSource = readFileSync(join(process.cwd(), 'app/components/SiteChrome.tsx'), 'utf8');
+const homeSource = readFileSync(join(process.cwd(), 'app/page.tsx'), 'utf8');
 
 describe('portfolio home page', () => {
   it('introduces Shareen in Chinese and exposes every MVP content area', () => {
@@ -20,6 +21,9 @@ describe('portfolio home page', () => {
     expect(screen.getByRole('heading', { name: /简历说明做过什么/ })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /公开思考/ })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /先是一个人/ })).toBeInTheDocument();
+    expect(screen.queryByText('SHAREEN SONG')).not.toBeInTheDocument();
+    expect(screen.queryByText('AI 产品 / 产品 / 增长')).not.toBeInTheDocument();
+    expect(screen.queryByText('深圳 · 香港')).not.toBeInTheDocument();
   });
 
   it('links all three selected projects to full case studies', () => {
@@ -41,6 +45,13 @@ describe('portfolio home page', () => {
     expect(chromeSource).toContain("window.matchMedia('(pointer: fine)')");
     expect(stylesheet).not.toContain('clip-path: polygon');
     expect(stylesheet).not.toContain("'Times New Roman'");
+  });
+
+  it('keeps the hero identity restrained and promotes the professional role', () => {
+    expect(stylesheet).toContain('font-size: clamp(3.2rem, 6.1vw, 5.8rem)');
+    expect(stylesheet).toContain('font-size: clamp(1.125rem, 1.5vw, 1.35rem)');
+    expect(stylesheet).toContain('font-size: clamp(2.9rem,13vw,4.2rem)');
+    expect(homeSource).not.toContain('hero-topline');
   });
 
   it('provides a color-safe A4 print layout for PDF export', () => {

@@ -54,11 +54,11 @@ img { display: block; }
 .identity-hero { position: relative; display: grid; min-height: 100svh; padding: 116px var(--gutter) 34px; overflow: hidden; isolation: isolate; background: var(--paper); }
 .hero-mesh { position: absolute; inset: 0; z-index: -3; background: url('/images/iridescent-mesh-desktop.png') center / cover no-repeat; }
 .hero-image { top: 18% !important; right: 9% !important; bottom: auto !important; left: auto !important; z-index: -1; width: min(30vw, 430px) !important; height: 66% !important; object-fit: cover; object-position: center 28%; border-radius: 48% 48% 28px 28px; box-shadow: 0 26px 70px rgba(59,37,97,.13); animation: image-enter 1100ms var(--ease) both; }
-.hero-topline { align-self: start; animation: reveal 700ms var(--ease) 100ms both; }
-.identity-copy { align-self: center; width: min(760px, 66vw); margin-top: 9vh; }
+.identity-copy { align-self: center; width: min(650px, 58vw); margin-top: 4vh; }
 .eyebrow, .section-heading-row > p, .personal-copy > p:first-child, .footer-kicker, .decision-section > div > p, .reflection-section > div > p { margin: 0 0 24px; color: var(--muted); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; }
-.identity-copy h1 { display: flex; flex-direction: column; margin: 0; font-size: clamp(4.5rem, 9.2vw, 8.8rem); font-weight: 720; line-height: .91; letter-spacing: -.065em; }
-.identity-copy h1 em { margin-left: 7%; color: var(--violet); font-style: normal; font-weight: 680; }
+.identity-copy .eyebrow { margin-bottom: 28px; color: var(--ink); font-size: clamp(1.125rem, 1.5vw, 1.35rem); letter-spacing: .05em; text-transform: none; }
+.identity-copy h1 { display: flex; flex-direction: column; margin: 0; font-size: clamp(3.2rem, 6.1vw, 5.8rem); font-weight: 720; line-height: .94; letter-spacing: -.055em; }
+.identity-copy h1 em { margin-left: 6%; color: var(--violet); font-size: .72em; font-style: normal; font-weight: 680; }
 .title-underline { display: block; width: 74px; height: 3px; margin: 30px 0 0 8%; border-radius: 999px; background: var(--violet); }
 .hero-statement { width: min(490px, 46vw); margin: 36px 0 0 24%; color: #494450; font-size: clamp(1.15rem, 1.65vw, 1.5rem); line-height: 1.5; }
 .hero-actions { position: absolute; right: var(--gutter); bottom: 34px; display: flex; gap: 24px; font-size: .75rem; letter-spacing: .06em; }
@@ -312,10 +312,10 @@ h1 em, h2 em { color: var(--violet); font-style: normal; }
   .identity-hero { min-height: 100svh; padding: 92px 16px 22px; }
   .hero-mesh { background-image: url('/images/iridescent-mesh-mobile.png'); background-position: center; }
   .hero-image { top: 17% !important; right: -3% !important; width: 52vw !important; height: 46% !important; border-radius: 44% 44% 20px 20px; opacity: .94; }
-  .label-row span:nth-child(2) { display: none; }
-  .identity-copy { align-self: end; width: 100%; margin: 0 0 18vh; }
-  .identity-copy h1 { font-size: clamp(3.6rem,17vw,5.1rem); line-height: .9; }
-  .identity-copy h1 em { margin-left: 0; font-size: .58em; letter-spacing: -.035em; }
+  .identity-copy { align-self: end; width: 100%; margin: 0 0 20vh; }
+  .identity-copy .eyebrow { margin-bottom: 20px; font-size: 1rem; }
+  .identity-copy h1 { font-size: clamp(2.9rem,13vw,4.2rem); line-height: .92; }
+  .identity-copy h1 em { margin-left: 0; font-size: .62em; letter-spacing: -.035em; }
   .title-underline { width: 54px; margin: 18px 0 0; }
   .hero-statement { width: min(320px,88vw); margin: 24px 0 0; font-size: 1rem; }
   .hero-actions { right: 16px; bottom: 22px; gap: 14px; }
@@ -401,7 +401,7 @@ h1 em, h2 em { color: var(--violet); font-style: normal; }
   body::after { position: absolute; }
   .identity-hero { min-height: 297mm; padding: 22mm 15mm 12mm; break-after: page; }
   .hero-image { width: 48% !important; }
-  .identity-copy h1 { font-size: 27mm; }
+  .identity-copy h1 { font-size: 18mm; }
   .about-section, .experience-section, .thoughts-preview, .personal-preview { min-height: 297mm; padding: 22mm 15mm; break-after: page; }
   .selected-work { padding: 22mm 15mm; }
   .project-stack { margin-right: -15mm; margin-left: -15mm; }
